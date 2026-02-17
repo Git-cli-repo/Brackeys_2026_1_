@@ -103,45 +103,89 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Abbey_0
+      name: AbbeyFront
       rect:
         serializedVersion: 2
         x: 0
-        y: 0
-        width: 81
-        height: 240
+        y: 120
+        width: 80
+        height: 120
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 55a8320c116a53940800000000000000
+      spriteID: 5967d06414e6cf14f83a282b07c2887f
       internalID: 5275305133702613589
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Abbey_1
+      name: AbbeyRight
       rect:
         serializedVersion: 2
-        x: 79
-        y: 0
-        width: 81
-        height: 240
+        x: 80
+        y: 120
+        width: 80
+        height: 120
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 22db8846a64f9acb0800000000000000
-      internalID: -4852078385724605150
+      spriteID: 78569492e87a720469760bcc2afa7f9e
+      internalID: -1672237255
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AbbeyBack
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 80
+        height: 120
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a2e667acb32c22e4f8235deabd5e904a
+      internalID: 1724929561
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AbbeyLeft
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 0
+        width: 80
+        height: 120
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 63c32313af26c0f44ab3234be254536c
+      internalID: 168878782
       vertices: []
       indices: 
       edges: []
@@ -150,7 +194,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 6b87e1ce8c7451648ad0bf774a968f74
     internalID: 0
     vertices: []
     indices: 
@@ -158,10 +202,14 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries: []
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":81.0,"y":126.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
-      Abbey_0: 5275305133702613589
-      Abbey_1: -4852078385724605150
+      AbbeyBack: 1724929561
+      AbbeyFront: 5275305133702613589
+      AbbeyLeft: 168878782
+      AbbeyRight: -1672237255
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
