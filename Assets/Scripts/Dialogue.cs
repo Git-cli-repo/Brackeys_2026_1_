@@ -25,5 +25,5 @@ public class DialogueRow
 [CreateAssetMenu(fileName = "New Dialogue Script", menuName = "Dialogue")]
 public class DialogueData : ScriptableObject
 {
-    
+    List<DialogueRow> dialogueRows;
 }
