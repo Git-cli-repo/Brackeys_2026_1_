@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 1190106bde23040bcb52ec36065b53d0
+guid: 2838d31f5716a4081894b29b2677b2d5
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -5959832639027358703
-    second: World1_tileset2_0
+      213: 6853316077166303748
+    second: Tree_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,11 +100,11 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: World1_tileset2_0
+      name: Tree_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 75
+        y: 80
         width: 80
         height: 80
       alignment: 0
@@ -115,83 +115,17 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 114def59acb6a4da0800000000000000
-      internalID: -5959832639027358703
+      spriteID: 40a98f869aedb1f50800000000000000
+      internalID: 6853316077166303748
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: World1_tileset2_1
-      rect:
-        serializedVersion: 2
-        x: 80
-        y: 75
-        width: 80
-        height: 80
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 8be8a0c9e1a814a848a8441058196a2a
-      internalID: -1114743033
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: World1_tileset2_2
-      rect:
-        serializedVersion: 2
-        x: 154
-        y: 78
-        width: 77
-        height: 77
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 6928c07f7856f43a49353dbeea804a18
-      internalID: -906883277
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: World1_tileset2_3
+      name: Tree_1
       rect:
         serializedVersion: 2
         x: 0
-        y: 1
-        width: 80
-        height: 80
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: a513d9219636243728d44720ed886ce7
-      internalID: -1200979257
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: World1_tileset2_4
-      rect:
-        serializedVersion: 2
-        x: 80
         y: 0
         width: 80
         height: 80
@@ -203,30 +137,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b340a7ae03dce4f4a8cafd7657d720b5
-      internalID: -1715775360
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: World1_tileset2_5
-      rect:
-        serializedVersion: 2
-        x: 160
-        y: 0
-        width: 80
-        height: 80
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 115ab781c4da94965b1a2b4ab98ae4b8
-      internalID: -398113709
+      spriteID: 2eca6930b366644cda27a06fdd6ae0d1
+      internalID: -1838823363
       vertices: []
       indices: 
       edges: []
@@ -235,7 +147,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 1f64687b62e9f4270b54bf59a7bb5ded
+    spriteID: 9c5545f3e2d2249a89b6be8eeb6e7502
     internalID: 0
     vertices: []
     indices: 
@@ -245,14 +157,10 @@ TextureImporter:
     spriteCustomMetadata:
       entries:
       - key: SpriteEditor.SliceSettings
-        value: '{"sliceOnImport":false,"gridCellCount":{"x":3.0,"y":2.0},"gridSpriteSize":{"x":77.0,"y":77.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":2.0},"gridSpriteSize":{"x":80.0,"y":80.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
-      World1_tileset2_0: -5959832639027358703
-      World1_tileset2_1: -1114743033
-      World1_tileset2_2: -906883277
-      World1_tileset2_3: -1200979257
-      World1_tileset2_4: -1715775360
-      World1_tileset2_5: -398113709
+      Tree_0: 6853316077166303748
+      Tree_1: -1838823363
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
