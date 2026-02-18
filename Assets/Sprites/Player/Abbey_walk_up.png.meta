@@ -1,10 +1,16 @@
 fileFormatVersion: 2
-guid: 154f86c4be5e9400284c8286d018fac6
+guid: 0996dbebd4ce69a48a02b4bcfe964e6a
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 3423119156519760902
-    second: Brick_Path_0
+      213: -5360920115012515066
+    second: Abbey_walk_up_0
+  - first:
+      213: -20218565019832175
+    second: Abbey_walk_up_1
+  - first:
+      213: -8898267356403632147
+    second: Abbey_walk_up_2
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -48,10 +54,10 @@ TextureImporter:
   compressionQuality: 50
   spriteMode: 2
   spriteExtrude: 1
-  spriteMeshType: 0
+  spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 80
+  spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -100,23 +106,89 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Brick_Path_0
+      name: Abbey_walk_up_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 0
+        y: 120
         width: 80
-        height: 80
+        height: 120
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 604f1348cbc518f20800000000000000
-      internalID: 3423119156519760902
+      spriteID: 60bce6b0f8f2a95b0800000000000000
+      internalID: -5360920115012515066
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Abbey_walk_up_1
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 120
+        width: 80
+        height: 120
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 190ff1e725b28bff0800000000000000
+      internalID: -20218565019832175
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Abbey_walk_up_2
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 80
+        height: 120
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: de77b110cf0038480800000000000000
+      internalID: -8898267356403632147
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Abbey_walk_up_3
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 0
+        width: 80
+        height: 120
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b2fa95c214f19b04bad7ee96a67f5cfa
+      internalID: -177218445
       vertices: []
       indices: 
       edges: []
@@ -125,7 +197,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 8a691fadf137ded449ca97533c5dd644
     internalID: 0
     vertices: []
     indices: 
@@ -133,9 +205,14 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries: []
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":80.0,"y":120.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
-      Brick_Path_0: 3423119156519760902
+      Abbey_walk_up_0: -5360920115012515066
+      Abbey_walk_up_1: -20218565019832175
+      Abbey_walk_up_2: -8898267356403632147
+      Abbey_walk_up_3: -177218445
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

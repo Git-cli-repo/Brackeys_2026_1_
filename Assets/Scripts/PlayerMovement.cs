@@ -8,10 +8,16 @@ public class PlayerMovement : MonoBehaviour
     public float speedX;
     public float speedY;
     public InputActionReference moveAction;
+    public Animator abbeyAnimator;
+    public float moveX;
+    public float moveY;
+    public float speed;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         body = gameObject.GetComponent<Rigidbody2D>();
+        abbeyAnimator = gameObject.GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -19,7 +25,14 @@ public class PlayerMovement : MonoBehaviour
     {
         Vector2 moveActionRead = moveAction.action.ReadValue<Vector2>();
         body.linearVelocity = new Vector2(moveActionRead[0] * speedX, moveActionRead[1] * speedY);
-
-        
+        if(body.linearVelocity == new Vector2(0, 0)) abbeyAnimator.speed = 0;
+        else { 
+            abbeyAnimator.speed = 1;
+            abbeyAnimator.SetFloat("moveX", moveActionRead[0]);
+            abbeyAnimator.SetFloat("moveY", moveActionRead[1]);
+        }
+        moveX = abbeyAnimator.GetFloat("moveX");
+        moveY = abbeyAnimator.GetFloat("moveY");
+        speed = abbeyAnimator.speed;
     }
 }
