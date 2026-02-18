@@ -22,8 +22,8 @@ public class DialogueRow
     }
 }
 
-[CreateAssetMenu(fileName = "New Dialogue Script", menuName = "Dialogue")]
-public class DialogueData : ScriptableObject
+[CreateAssetMenu(fileName = "New Dialogue Script", menuName = "DialogueData")]
+public class Dialogue : ScriptableObject
 {
-    List<DialogueRow> dialogueRows;
+    public List<DialogueRow> dialogueRows;
 }

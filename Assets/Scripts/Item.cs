@@ -1,16 +1,48 @@
 using UnityEngine;
 
-public class Item : MonoBehaviour
+public enum ItemType
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
+    Weapon,
+    Armor,
+    Consumable,
+    Encrypted,
+    Email
+}
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+[CreateAssetMenu(menuName = "Item")]
+public class Item : ScriptableObject
+{
+    public string itemName;
+    public ItemType objectType;
+
+    [Space]
+
+    [Header("Weapon Options")]
+    public float attackFrequency;
+    public float offenseIncrease; // if Melee
+    public bool isRanged;
+    public GameObject projectile;
+
+    [Space]
+
+    [Header("Armor Options")]
+    public float defenseIncrease;
+
+    [Space]
+
+    [Header("Consumable Options")]
+    public bool statIncrease;
+    public float baseOffenseIncrease;
+    public float baseDefenseIncrease;
+    public float maxHpIncrease;
+    public bool heal;
+    public float hpRegain;
+
+    [Space]
+
+    [Header("Encrypted Options")]
+    public Item decryptedItem;
+
+    //[Header("Email Options")]
+    // insert system to read email in dialogue box
 }
