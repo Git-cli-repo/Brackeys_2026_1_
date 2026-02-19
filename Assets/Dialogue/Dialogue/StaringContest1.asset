@@ -10,14 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fd925d013ec2afa4c97df69f432c969d, type: 3}
-  m_Name: Boy_1
+  m_Name: StaringContest1
   m_EditorClassIdentifier: Assembly-CSharp::Dialogue
   dialogueRows:
-  - talkLine: 'Boy 1 '
+  - talkLine: Don't talk to me! We're having a staring contest!
     talkSprite: {fileID: -6949200702322379995, guid: b562c4170e110054fb7b421b0f952f2c, type: 3}
     profileDirection: 0
-    talkSound: {fileID: 8300000, guid: 0f5e13045bbb1334f9dae418c1d34f79, type: 3}
-  - talkLine: Abbey 1
-    talkSprite: {fileID: -7385276624028842587, guid: ca56208e96cea124d920067054c72d5d, type: 3}
+    talkSound: {fileID: 8300000, guid: e6d4d3cc9c8a05a41a5750e449319a1c, type: 3}
+  - talkLine: You'll make me lose, so scram!
+    talkSprite: {fileID: -6949200702322379995, guid: b562c4170e110054fb7b421b0f952f2c, type: 3}
     profileDirection: 0
-    talkSound: {fileID: 8300000, guid: 05f15c588bc184c4daf3dd36aec9a509, type: 3}
+    talkSound: {fileID: 8300000, guid: e6d4d3cc9c8a05a41a5750e449319a1c, type: 3}
