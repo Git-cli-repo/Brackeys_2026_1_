@@ -12,3 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd925d013ec2afa4c97df69f432c969d, type: 3}
   m_Name: Test
   m_EditorClassIdentifier: Assembly-CSharp::Dialogue
+  dialogueRows:
+  - talkLine: 
+    talkSprite: {fileID: 0}
+    profileDirection: 0
+  - talkLine: 
+    talkSprite: {fileID: 0}
+    profileDirection: 0
+  - talkLine: 
+    talkSprite: {fileID: 0}
+    profileDirection: 0

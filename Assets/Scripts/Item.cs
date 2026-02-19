@@ -5,23 +5,24 @@ public enum ItemType
     Weapon,
     Armor,
     Consumable,
-    Encrypted,
+    Room,
     Email
 }
 
-[CreateAssetMenu(menuName = "Item")]
+[CreateAssetMenu(fileName = "New Item", menuName = "Item")]
 public class Item : ScriptableObject
 {
     public string itemName;
     public ItemType objectType;
+    public bool Encrypted;
 
     [Space]
 
     [Header("Weapon Options")]
     public float attackFrequency;
     public float offenseIncrease; // if Melee
-    public bool isRanged;
-    public GameObject projectile;
+//    public bool isRanged;
+//   public GameObject projectile;
 
     [Space]
 
@@ -43,6 +44,6 @@ public class Item : ScriptableObject
     [Header("Encrypted Options")]
     public Item decryptedItem;
 
-    //[Header("Email Options")]
-    // insert system to read email in dialogue box
+    [Header("Email Options")]
+    public Dialogue contents;
 }

@@ -12,12 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a351c7e3e52f41b798b566725c122ca, type: 3}
   m_Name: Bow
   m_EditorClassIdentifier: Assembly-CSharp::Item
-  objectType: 0
-  offenseIncrease: 0
-  isRanged: 0
-  projectile: {fileID: 0}
+  itemName: 
+  objectType: 1
+  Encrypted: 0
   attackFrequency: 0
-  defenseIncrease: 0
+  offenseIncrease: 0
+  defenseIncrease: 1
   statIncrease: 0
   baseOffenseIncrease: 0
   baseDefenseIncrease: 0
@@ -25,3 +25,4 @@ MonoBehaviour:
   heal: 0
   hpRegain: 0
   decryptedItem: {fileID: 0}
+  contents: {fileID: 0}
