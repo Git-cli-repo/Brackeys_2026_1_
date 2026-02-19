@@ -8,17 +8,19 @@ public class DialogueRow
     public string talkLine;
     public Sprite talkSprite;
     public ProfileDirection profileDirection;
+    public AudioClip talkSound;
 
     public enum ProfileDirection
     {
         Left,
         Right
     }
-    public DialogueRow(string str, Sprite spr, ProfileDirection profDir)
+    public DialogueRow(string str, Sprite spr, ProfileDirection profDir, AudioClip acer)
     {
         talkLine = str;
         talkSprite = spr;
         profileDirection = profDir;
+        talkSound = acer;
     }
 }
 
@@ -26,4 +28,9 @@ public class DialogueRow
 public class Dialogue : ScriptableObject
 {
     public List<DialogueRow> dialogueRows;
+}
+
+public class DialoguePlay : MonoBehaviour
+{
+    // useless!!     or....
 }
