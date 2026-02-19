@@ -2,9 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEditor.ShaderGraph.Internal;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Rendering.Universal;
 using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
@@ -14,9 +16,12 @@ public class GameManager : MonoBehaviour
     public CanvasGroup dialogueCanvas;
     public Image imgLeft;
     public Image imgRight;
+    public TMP_Text choiceRight;
+    public TMP_Text choiceLeft;
     public bool inDialogueMode = false;
     public Dialogue dialogue;
     public InputActionReference dialogueKeyReference;
+    public InputActionReference moveKeyReference;
     public AudioSource diaSoundPlayer;
     public AudioClip diaSoundClip;
     public int currentLineIndex = 0;
@@ -27,13 +32,25 @@ public class GameManager : MonoBehaviour
     public bool inputPressed; 
     public bool isPlaying;
     public bool dialogueStarted = false;
+    public bool choiceMode = false;
+    public string choice1 = "";
+    public string choice2 = "";
+    public int currentChoice;
+    public Dictionary<Chest, bool> chestIndex = new Dictionary<Chest, bool>(); // TODO: Add chest indexing via FindObjectsOfType -> ChestContainer
+    public List<Item> inventoryCopy;
+    public GameObject abbey;
+    public Dictionary<int, int> choiceValueStorage = new Dictionary<int, int>();
+    public Dictionary<ChoiceResult, bool> hasAlreadyUsed = new Dictionary<ChoiceResult, bool>();
     void Awake()
     {
         Instance = this;
+        DontDestroyOnLoad(this);
     }
     void Start()
     {
         dialogueCanvas.alpha = 0;
+        abbey = GameObject.FindFirstObjectByType<PlayerMovement>().gameObject;
+        inventoryCopy = GameObject.FindFirstObjectByType<InventoryManager>().inventory;
     }
 
     public IEnumerator FadeIn()
@@ -87,21 +104,35 @@ public class GameManager : MonoBehaviour
             diaLine.text = dia.talkLine;
             diaLine.maxVisibleCharacters = 0;
 
-            if(dia.profileDirection == DialogueRow.ProfileDirection.Left)
+            choiceMode = dia.isChoice;
+            choiceLeft.text = "";
+            choiceRight.text = "";
+
+            if(dia.profileDirection == DialogueRow.ProfileDirection.Left && !choiceMode)
             {
                 imgLeft.gameObject.SetActive(true);
                 imgLeft.sprite = dia.talkSprite;
                 imgRight.gameObject.SetActive(false);
-            } else
+            } else if (!choiceMode)
             {
                 imgRight.gameObject.SetActive(true);
                 imgRight.sprite = dia.talkSprite;
                 imgLeft.gameObject.SetActive(false);
+            } else
+            {
+                imgLeft.gameObject.SetActive(false);
+                imgRight.gameObject.SetActive(false);
+                diaLine.text = "";
+                choiceLeft.text = dia.choiceResult.option1;
+                choiceRight.text = dia.choiceResult.option2;
+                currentChoice = 1;
+                choiceLeft.color = Color.yellow;
+                choiceRight.color = Color.white;
             }
 
             diaSoundClip = dia.talkSound;
 
-            yield return StartCoroutine(TypewriterEffect());
+            if(!choiceMode) yield return StartCoroutine(TypewriterEffect());
             yield return new WaitUntil(() => inputPressed);
         }
 
@@ -116,6 +147,69 @@ public class GameManager : MonoBehaviour
     public IEnumerator ButtonPressLogic()
     {
         inputPressed = false;
+
+        if (choiceMode)
+        {
+            if(!hasAlreadyUsed.TryGetValue(lines[currentLineIndex - 1].choiceResult, out bool hasUsed)){   
+                ChoiceResult choice = lines[currentLineIndex - 1].choiceResult;
+                switch (choice.choiceType)
+                {
+                    case ChoiceResult.ChoiceType.Message:
+                        if(currentChoice == 1)
+                        {
+                            lines[currentLineIndex] = choice.message1;
+
+                        } else if(currentChoice == 2)
+                        {
+                            lines[currentLineIndex] = choice.message2;
+                        }
+                        hasAlreadyUsed.Add(choice, true);
+                        break;
+                    case ChoiceResult.ChoiceType.Item:
+                        if(currentChoice == 1)
+                        {
+                            inventoryCopy.Add(choice.item1);
+
+                        } else if(currentChoice == 2)
+                        {
+                            inventoryCopy.Add(choice.item2);
+                        }
+                        hasAlreadyUsed.Add(choice, true);
+                        break;
+                    // account for SetValue later...
+                }
+            } else if (!hasUsed)
+            {
+                ChoiceResult choice = lines[currentLineIndex - 1].choiceResult;
+                switch (choice.choiceType)
+                {
+                    case ChoiceResult.ChoiceType.Message:
+                        if(currentChoice == 1)
+                        {
+                            lines[currentLineIndex] = choice.message1;
+
+                        } else if(currentChoice == 2)
+                        {
+                            lines[currentLineIndex] = choice.message2;
+                        }
+                        hasAlreadyUsed.Add(choice, true);
+                        break;
+                    case ChoiceResult.ChoiceType.Item:
+                        if(currentChoice == 1)
+                        {
+                            inventoryCopy.Add(choice.item1);
+
+                        } else if(currentChoice == 2)
+                        {
+                            inventoryCopy.Add(choice.item2);
+                        }
+                        hasAlreadyUsed.Add(choice, true);
+                        break;
+                    // account for SetValue later...
+                }
+            }
+        }
+
         if (isPlaying)
         {
             diaLine.maxVisibleCharacters = diaLine.text.Length;
@@ -141,6 +235,22 @@ public class GameManager : MonoBehaviour
         if (dialogueKeyReference.action.WasPressedThisFrame())
         {
             StartCoroutine(ButtonPressLogic());
+        }
+
+        if(moveKeyReference.action.ReadValue<Vector2>()[0] != 0 && choiceMode)
+        {
+            float directionalPress = moveKeyReference.action.ReadValue<Vector2>()[0];
+            if(directionalPress > 0)
+            {
+                choiceRight.color = Color.yellow;
+                choiceLeft.color = Color.white;
+                currentChoice = 2;
+            } else if(directionalPress < 0)
+            {
+                choiceLeft.color = Color.yellow;
+                choiceRight.color = Color.white;
+                currentChoice = 1;
+            }
         }
     }
 }

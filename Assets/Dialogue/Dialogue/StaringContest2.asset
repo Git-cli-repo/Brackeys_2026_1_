@@ -10,14 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fd925d013ec2afa4c97df69f432c969d, type: 3}
-  m_Name: Old Woman 1
+  m_Name: StaringContest2
   m_EditorClassIdentifier: Assembly-CSharp::Dialogue
   dialogueRows:
-  - talkLine: Be careful on your travels dear...
+  - talkLine: Why does this kid keep staring at me?
     talkSprite: {fileID: -6949200702322379995, guid: b562c4170e110054fb7b421b0f952f2c, type: 3}
     profileDirection: 0
-    talkSound: {fileID: 8300000, guid: 05f15c588bc184c4daf3dd36aec9a509, type: 3}
-  - talkLine: 'I heard there''s a big black spider living deep in the woods '
+    talkSound: {fileID: 8300000, guid: c4653030568e0254893726d89cc0efef, type: 3}
+  - talkLine: I'd ask him, but I'm too focused on this tree for conversation.
     talkSprite: {fileID: -6949200702322379995, guid: b562c4170e110054fb7b421b0f952f2c, type: 3}
     profileDirection: 0
-    talkSound: {fileID: 8300000, guid: 05f15c588bc184c4daf3dd36aec9a509, type: 3}
+    talkSound: {fileID: 8300000, guid: c4653030568e0254893726d89cc0efef, type: 3}

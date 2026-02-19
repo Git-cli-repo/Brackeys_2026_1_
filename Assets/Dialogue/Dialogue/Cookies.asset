@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fd925d013ec2afa4c97df69f432c969d, type: 3}
+  m_Name: Cookies
+  m_EditorClassIdentifier: Assembly-CSharp::Dialogue
+  dialogueRows:
+  - talkLine: Would you like some cookies?
+    talkSprite: {fileID: -6949200702322379995, guid: b562c4170e110054fb7b421b0f952f2c, type: 3}
+    profileDirection: 0
+    talkSound: {fileID: 8300000, guid: edb6bd5c53b65b4409bd57442d67b756, type: 3}
+    isChoice: 0
+    choiceResult: {fileID: 0}
+  - talkLine: Would you like some cookies?
+    talkSprite: {fileID: -6949200702322379995, guid: b562c4170e110054fb7b421b0f952f2c, type: 3}
+    profileDirection: 0
+    talkSound: {fileID: 8300000, guid: edb6bd5c53b65b4409bd57442d67b756, type: 3}
+    isChoice: 1
+    choiceResult: {fileID: 11400000, guid: 8c49e91b209e7144ca0d054179b4864d, type: 2}

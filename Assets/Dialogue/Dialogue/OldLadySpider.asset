@@ -1,0 +1,57 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fd925d013ec2afa4c97df69f432c969d, type: 3}
+  m_Name: OldLadySpider
+  m_EditorClassIdentifier: Assembly-CSharp::Dialogue
+  dialogueRows:
+  - talkLine: Be careful while travelling, dear.
+    talkSprite: {fileID: -6949200702322379995, guid: b562c4170e110054fb7b421b0f952f2c, type: 3}
+    profileDirection: 0
+    talkSound: {fileID: 8300000, guid: edb6bd5c53b65b4409bd57442d67b756, type: 3}
+    isChoice: 0
+    choiceResult: {fileID: 0}
+  - talkLine: Rumor has it that the forest up ahead has a giant spider!
+    talkSprite: {fileID: -6949200702322379995, guid: b562c4170e110054fb7b421b0f952f2c, type: 3}
+    profileDirection: 0
+    talkSound: {fileID: 8300000, guid: edb6bd5c53b65b4409bd57442d67b756, type: 3}
+    isChoice: 0
+    choiceResult: {fileID: 0}
+  - talkLine: Although I'm not sure why they call it "Lazy"!
+    talkSprite: {fileID: -6949200702322379995, guid: b562c4170e110054fb7b421b0f952f2c, type: 3}
+    profileDirection: 0
+    talkSound: {fileID: 8300000, guid: edb6bd5c53b65b4409bd57442d67b756, type: 3}
+    isChoice: 0
+    choiceResult: {fileID: 0}
+  - talkLine: Don't worry, Granny!
+    talkSprite: {fileID: -7385276624028842587, guid: ca56208e96cea124d920067054c72d5d, type: 3}
+    profileDirection: 1
+    talkSound: {fileID: 8300000, guid: 05f15c588bc184c4daf3dd36aec9a509, type: 3}
+    isChoice: 0
+    choiceResult: {fileID: 0}
+  - talkLine: I'm sure It'll be fine!
+    talkSprite: {fileID: -8091112223627853591, guid: f6b566c9a77bf2148a08b05da0d731ea, type: 3}
+    profileDirection: 1
+    talkSound: {fileID: 8300000, guid: 05f15c588bc184c4daf3dd36aec9a509, type: 3}
+    isChoice: 0
+    choiceResult: {fileID: 0}
+  - talkLine: Do take care!
+    talkSprite: {fileID: -6949200702322379995, guid: b562c4170e110054fb7b421b0f952f2c, type: 3}
+    profileDirection: 0
+    talkSound: {fileID: 8300000, guid: edb6bd5c53b65b4409bd57442d67b756, type: 3}
+    isChoice: 0
+    choiceResult: {fileID: 0}
+  - talkLine: (Let's remember that, OK?)
+    talkSprite: {fileID: -8091112223627853591, guid: f6b566c9a77bf2148a08b05da0d731ea, type: 3}
+    profileDirection: 1
+    talkSound: {fileID: 8300000, guid: 05f15c588bc184c4daf3dd36aec9a509, type: 3}
+    isChoice: 0
+    choiceResult: {fileID: 0}

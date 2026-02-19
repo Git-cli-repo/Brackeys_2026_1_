@@ -10,34 +10,48 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fd925d013ec2afa4c97df69f432c969d, type: 3}
-  m_Name: Exploding_trees
+  m_Name: ExplodingTrees
   m_EditorClassIdentifier: Assembly-CSharp::Dialogue
   dialogueRows:
-  - talkLine: Wow, you got here from [Village]?
+  - talkLine: I recognize that wind pattern in your hair...
+    talkSprite: {fileID: -6949200702322379995, guid: b562c4170e110054fb7b421b0f952f2c, type: 3}
+    profileDirection: 0
+    talkSound: {fileID: 8300000, guid: c4653030568e0254893726d89cc0efef, type: 3}
+    isChoice: 0
+    choiceResult: {fileID: 0}
+  - talkLine: You got here from Harpton, didn't you?
     talkSprite: {fileID: -6949200702322379995, guid: b562c4170e110054fb7b421b0f952f2c, type: 3}
     profileDirection: 0
     talkSound: {fileID: 8300000, guid: 0f5e13045bbb1334f9dae418c1d34f79, type: 3}
-  - talkLine: Yep!
-    talkSprite: {fileID: -7385276624028842587, guid: ca56208e96cea124d920067054c72d5d, type: 3}
+    isChoice: 0
+    choiceResult: {fileID: 0}
+  - talkLine: Uh... yes?
+    talkSprite: {fileID: -9106464392509419758, guid: 7cec02b37f9fb8e4195edda9f6cf2dd8, type: 3}
     profileDirection: 1
     talkSound: {fileID: 8300000, guid: 05f15c588bc184c4daf3dd36aec9a509, type: 3}
-  - talkLine: Incredible!
-    talkSprite: {fileID: -7385276624028842587, guid: ca56208e96cea124d920067054c72d5d, type: 3}
-    profileDirection: 0
-    talkSound: {fileID: 8300000, guid: 0f5e13045bbb1334f9dae418c1d34f79, type: 3}
+    isChoice: 0
+    choiceResult: {fileID: 0}
   - talkLine: But still, be careful when you go into the woods,
     talkSprite: {fileID: -7385276624028842587, guid: ca56208e96cea124d920067054c72d5d, type: 3}
     profileDirection: 0
     talkSound: {fileID: 8300000, guid: 0f5e13045bbb1334f9dae418c1d34f79, type: 3}
+    isChoice: 0
+    choiceResult: {fileID: 0}
   - talkLine: ... and keep an eye out for exploding trees.
     talkSprite: {fileID: -7385276624028842587, guid: ca56208e96cea124d920067054c72d5d, type: 3}
     profileDirection: 0
     talkSound: {fileID: 8300000, guid: 0f5e13045bbb1334f9dae418c1d34f79, type: 3}
-  - talkLine: Exploding trees?
-    talkSprite: {fileID: -7385276624028842587, guid: ca56208e96cea124d920067054c72d5d, type: 3}
+    isChoice: 0
+    choiceResult: {fileID: 0}
+  - talkLine: ...Exploding trees?
+    talkSprite: {fileID: -3466413011382681182, guid: f6b566c9a77bf2148a08b05da0d731ea, type: 3}
     profileDirection: 1
     talkSound: {fileID: 8300000, guid: 05f15c588bc184c4daf3dd36aec9a509, type: 3}
-  - talkLine: Exploding trees?
-    talkSprite: {fileID: -7385276624028842587, guid: ca56208e96cea124d920067054c72d5d, type: 3}
+    isChoice: 0
+    choiceResult: {fileID: 0}
+  - talkLine: (Let's remember that, OK?)
+    talkSprite: {fileID: -8091112223627853591, guid: f6b566c9a77bf2148a08b05da0d731ea, type: 3}
     profileDirection: 1
     talkSound: {fileID: 8300000, guid: 05f15c588bc184c4daf3dd36aec9a509, type: 3}
+    isChoice: 0
+    choiceResult: {fileID: 0}
