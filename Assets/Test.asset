@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Test
   m_EditorClassIdentifier: Assembly-CSharp::Dialogue
   dialogueRows:
+<<<<<<< HEAD
   - talkLine: 
     talkSprite: {fileID: 0}
     profileDirection: 0
@@ -22,3 +23,17 @@ MonoBehaviour:
   - talkLine: 
     talkSprite: {fileID: 0}
     profileDirection: 0
+=======
+  - talkLine: What... you want me to do a "dialogue"?
+    talkSprite: {fileID: -6949200702322379995, guid: b562c4170e110054fb7b421b0f952f2c, type: 3}
+    profileDirection: 0
+    talkSound: {fileID: 8300000, guid: 0f5e13045bbb1334f9dae418c1d34f79, type: 3}
+  - talkLine: Um.... I guess?
+    talkSprite: {fileID: -7385276624028842587, guid: ca56208e96cea124d920067054c72d5d, type: 3}
+    profileDirection: 1
+    talkSound: {fileID: 8300000, guid: 05f15c588bc184c4daf3dd36aec9a509, type: 3}
+  - talkLine: You kids and your newfangled technology!
+    talkSprite: {fileID: -6949200702322379995, guid: b562c4170e110054fb7b421b0f952f2c, type: 3}
+    profileDirection: 0
+    talkSound: {fileID: 8300000, guid: 0f5e13045bbb1334f9dae418c1d34f79, type: 3}
+>>>>>>> 3debec4cf216d1e76b5222897651e70aa29eff59
