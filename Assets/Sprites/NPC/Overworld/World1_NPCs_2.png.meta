@@ -1,13 +1,43 @@
 fileFormatVersion: 2
-guid: 5a7219c5d4108458cadb71c9a42af32f
+guid: 04a336fa3064c48429fc678a5afba223
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 8868512272049816071
-    second: World1_tileset_Grass_Brick_0
+      213: 8735912925186899595
+    second: World1_NPCs_2_0
   - first:
-      213: -4486755021034961083
-    second: World1_tileset_Grass_Brick_1
+      213: 5983827594389353488
+    second: World1_NPCs_2_1
+  - first:
+      213: -3958766862343735692
+    second: World1_NPCs_2_2
+  - first:
+      213: 5530494086539476862
+    second: World1_NPCs_2_3
+  - first:
+      213: 6509732649024856678
+    second: World1_NPCs_2_4
+  - first:
+      213: 5596446825563507914
+    second: World1_NPCs_2_5
+  - first:
+      213: 211909751725438069
+    second: World1_NPCs_2_6
+  - first:
+      213: 6906888209389440521
+    second: World1_NPCs_2_7
+  - first:
+      213: 1332830658991222234
+    second: World1_NPCs_2_8
+  - first:
+      213: 752644403214578666
+    second: World1_NPCs_2_9
+  - first:
+      213: -594874446626151296
+    second: World1_NPCs_2_10
+  - first:
+      213: 7930845868799427498
+    second: World1_NPCs_2_11
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -51,10 +81,10 @@ TextureImporter:
   compressionQuality: 50
   spriteMode: 2
   spriteExtrude: 1
-  spriteMeshType: 0
+  spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 80
+  spritePixelsToUnits: 120
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -103,287 +133,265 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: World1_tileset_Grass_Brick_0
+      name: World1_NPCs_2_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 400
-        width: 80
-        height: 80
+        x: 9
+        y: 239
+        width: 52
+        height: 112
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 702c8bd8ce8431b70800000000000000
-      internalID: 8868512272049816071
+      spriteID: b8e328645823c3970800000000000000
+      internalID: 8735912925186899595
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: World1_tileset_Grass_Brick_1
+      name: World1_NPCs_2_1
       rect:
         serializedVersion: 2
-        x: 80
-        y: 400
-        width: 80
-        height: 80
+        x: 99
+        y: 239
+        width: 52
+        height: 112
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 547c2098418dbb1c0800000000000000
-      internalID: -4486755021034961083
+      spriteID: 014f1c05e73da0350800000000000000
+      internalID: 5983827594389353488
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: World1_tileset_Grass_Brick_2
+      name: World1_NPCs_2_2
       rect:
         serializedVersion: 2
-        x: 0
-        y: 320
-        width: 80
-        height: 80
+        x: 159
+        y: 239
+        width: 82
+        height: 112
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 3ca48795cdb6b4892896da1484a316df
-      internalID: 1035414673
+      spriteID: 476f96d5382af09c0800000000000000
+      internalID: -3958766862343735692
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: World1_tileset_Grass_Brick_3
+      name: World1_NPCs_2_3
       rect:
         serializedVersion: 2
-        x: 80
-        y: 320
-        width: 80
-        height: 80
+        x: 244
+        y: 239
+        width: 62
+        height: 117
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 2c574482e68534a6fb09e92efaf5a6ab
-      internalID: -1455945744
+      spriteID: e7f7594e11340cc40800000000000000
+      internalID: 5530494086539476862
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: World1_tileset_Grass_Brick_4
+      name: World1_NPCs_2_4
       rect:
         serializedVersion: 2
-        x: 0
-        y: 160
-        width: 80
-        height: 80
+        x: 14
+        y: 119
+        width: 62
+        height: 117
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: ace95cf82361c4451b079a687ed4008d
-      internalID: -2140420502
+      spriteID: 662a3efaa57375a50800000000000000
+      internalID: 6509732649024856678
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: World1_tileset_Grass_Brick_5
+      name: World1_NPCs_2_5
       rect:
         serializedVersion: 2
-        x: 80
-        y: 160
-        width: 80
-        height: 80
+        x: 79
+        y: 119
+        width: 82
+        height: 117
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 28540cf687a174c0e84fabacaedef0a1
-      internalID: 551887246
+      spriteID: acc43129cb29aad40800000000000000
+      internalID: 5596446825563507914
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: World1_tileset_Grass_Brick_6
+      name: World1_NPCs_2_6
       rect:
         serializedVersion: 2
-        x: 160
-        y: 160
-        width: 80
-        height: 80
+        x: 174
+        y: 119
+        width: 57
+        height: 107
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 9dae7f75f216c40898379a3ec6e71f83
-      internalID: 933385667
+      spriteID: 5743904ebcad0f200800000000000000
+      internalID: 211909751725438069
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: World1_tileset_Grass_Brick_7
+      name: World1_NPCs_2_7
       rect:
         serializedVersion: 2
-        x: 0
-        y: 80
-        width: 80
-        height: 80
+        x: 249
+        y: 119
+        width: 57
+        height: 107
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: f597e618f39434eb0a41d72d445f3f4b
-      internalID: 457273448
+      spriteID: 90ecdff6b323adf50800000000000000
+      internalID: 6906888209389440521
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: World1_tileset_Grass_Brick_8
-      rect:
-        serializedVersion: 2
-        x: 80
-        y: 80
-        width: 80
-        height: 80
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 19c6b2788ff694decbde0968f78cf0b8
-      internalID: -1742166074
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: World1_tileset_Grass_Brick_9
-      rect:
-        serializedVersion: 2
-        x: 160
-        y: 80
-        width: 80
-        height: 80
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: a0894f61f968c4c739d24728eae38a6b
-      internalID: -1399564596
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: World1_tileset_Grass_Brick_10
+      name: World1_NPCs_2_8
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 80
-        height: 80
+        width: 81
+        height: 106
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 02b663a7f837c40bf83bb1eb43a0b8aa
-      internalID: -1796830904
+      spriteID: addebe63c6a2f7210800000000000000
+      internalID: 1332830658991222234
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: World1_tileset_Grass_Brick_11
+      name: World1_NPCs_2_9
       rect:
         serializedVersion: 2
-        x: 80
+        x: 94
         y: 0
-        width: 80
-        height: 80
+        width: 52
+        height: 111
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 930f954706960481a9e766475d05e9be
-      internalID: -1202724918
+      spriteID: ae37ac7d81ee17a00800000000000000
+      internalID: 752644403214578666
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: World1_tileset_Grass_Brick_12
+      name: World1_NPCs_2_10
       rect:
         serializedVersion: 2
-        x: 160
+        x: 174
         y: 0
-        width: 80
-        height: 80
+        width: 52
+        height: 106
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 6b58baa7f920c4e148bcf2b5b42fcd09
-      internalID: -393379106
+      spriteID: 08424e2b7d49eb7f0800000000000000
+      internalID: -594874446626151296
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: World1_NPCs_2_11
+      rect:
+        serializedVersion: 2
+        x: 239
+        y: 0
+        width: 81
+        height: 106
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: aa30a2a5c46001e60800000000000000
+      internalID: 7930845868799427498
       vertices: []
       indices: 
       edges: []
@@ -392,7 +400,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 34c18ed42cff245af816ddbbdb9b8d35
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -400,23 +408,20 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries:
-      - key: SpriteEditor.SliceSettings
-        value: '{"sliceOnImport":false,"gridCellCount":{"x":3.0,"y":6.0},"gridSpriteSize":{"x":80.0,"y":80.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
+      entries: []
     nameFileIdTable:
-      World1_tileset_Grass_Brick_0: 8868512272049816071
-      World1_tileset_Grass_Brick_1: -4486755021034961083
-      World1_tileset_Grass_Brick_10: -1796830904
-      World1_tileset_Grass_Brick_11: -1202724918
-      World1_tileset_Grass_Brick_12: -393379106
-      World1_tileset_Grass_Brick_2: 1035414673
-      World1_tileset_Grass_Brick_3: -1455945744
-      World1_tileset_Grass_Brick_4: -2140420502
-      World1_tileset_Grass_Brick_5: 551887246
-      World1_tileset_Grass_Brick_6: 933385667
-      World1_tileset_Grass_Brick_7: 457273448
-      World1_tileset_Grass_Brick_8: -1742166074
-      World1_tileset_Grass_Brick_9: -1399564596
+      World1_NPCs_2_0: 8735912925186899595
+      World1_NPCs_2_1: 5983827594389353488
+      World1_NPCs_2_10: -594874446626151296
+      World1_NPCs_2_11: 7930845868799427498
+      World1_NPCs_2_2: -3958766862343735692
+      World1_NPCs_2_3: 5530494086539476862
+      World1_NPCs_2_4: 6509732649024856678
+      World1_NPCs_2_5: 5596446825563507914
+      World1_NPCs_2_6: 211909751725438069
+      World1_NPCs_2_7: 6906888209389440521
+      World1_NPCs_2_8: 1332830658991222234
+      World1_NPCs_2_9: 752644403214578666
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
