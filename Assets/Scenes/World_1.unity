@@ -355274,6 +355274,7 @@ GameObject:
   - component: {fileID: 1660322524}
   - component: {fileID: 1660322523}
   - component: {fileID: 1660322522}
+  - component: {fileID: 1660322525}
   m_Layer: 5
   m_Name: DialoguePanel
   m_TagString: Untagged
@@ -355356,6 +355357,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1660322520}
   m_CullTransparentMesh: 1
+--- !u!225 &1660322525
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1660322520}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &1666971810
 GameObject:
   m_ObjectHideFlags: 0
@@ -422812,7 +422825,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameManager
   diaLine: {fileID: 299533478}
-  dialogueCanvas: {fileID: 0}
+  dialogueCanvas: {fileID: 1660322525}
   imgLeft: {fileID: 2132831994}
   imgRight: {fileID: 148472343}
   inDialogueMode: 0
