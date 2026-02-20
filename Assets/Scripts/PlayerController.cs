@@ -27,6 +27,7 @@ public class PlayerController : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        hitbox = hitboxGO.GetComponent<Hitbox>();
         offense = baseOffense;
         defense = baseDefense;
         attackCoolDownTimer = attackCoolDownTime;

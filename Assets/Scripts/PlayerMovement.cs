@@ -45,7 +45,7 @@ public class PlayerMovement : MonoBehaviour
     public void OnTriggerEnter2D(Collider2D collision)
     {
         Debug.Log("Entered");
-        if(collision.gameObject.TryGetComponent<DMat>(out DMat dialogue) && !GameManager.Instance.dialogueJustPlayed && GameManager.Instance.dialogueKeyReference.action.ReadValue<float>() > 0)
+        if(collision.gameObject.TryGetComponent<DMat>(out DMat dialogue) && !GameManager.Instance.dialogueJustPlayed)
         {
             Debug.Log("Began Dialogue");
             GameManager.Instance.inDialogueMode = true;

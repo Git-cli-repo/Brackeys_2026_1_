@@ -30,7 +30,7 @@ public class GameManager : MonoBehaviour
     public List<DialogueRow> lines;
     public float iTimePassed = 0.1f;
     public float tSpeed = 0.01f;
-    public bool inputPressed; 
+    public bool inputPressed;
     public bool isPlaying;
     public bool dialogueStarted = false;
     public bool choiceMode = false;
@@ -71,14 +71,14 @@ public class GameManager : MonoBehaviour
         barrierList = GameObject.FindObjectsByType<BarrierContainer>(FindObjectsSortMode.None).Select(p => p.gameObject).ToList();
 
         // Disable 
-        foreach(RoomContainer rm in roomsList.Select(p => p.GetComponent<RoomContainer>()))
+        foreach (RoomContainer rm in roomsList.Select(p => p.GetComponent<RoomContainer>()))
         {
             rm.isEnabled = false;
             rm.gameObject.SetActive(false);
         }
 
         // Enable
-        foreach(BarrierContainer bc in barrierList.Select(p => p.GetComponent<BarrierContainer>()))
+        foreach (BarrierContainer bc in barrierList.Select(p => p.GetComponent<BarrierContainer>()))
         {
             bc.enabled = true;
             bc.gameObject.SetActive(true);
@@ -88,7 +88,8 @@ public class GameManager : MonoBehaviour
     public IEnumerator FadeIn()
     {
         float timePassed = 0;
-        while(dialogueCanvas.alpha < 1){
+        while (dialogueCanvas.alpha < 1)
+        {
             timePassed += Time.deltaTime;
             dialogueCanvas.alpha = Mathf.Lerp(0, 1, timePassed / iTimePassed);
             yield return null;
@@ -98,26 +99,28 @@ public class GameManager : MonoBehaviour
     public IEnumerator FadeOut()
     {
         float timePassed = 0;
-        while(dialogueCanvas.alpha > 0){
+        while (dialogueCanvas.alpha > 0)
+        {
             timePassed += Time.deltaTime;
             dialogueCanvas.alpha = Mathf.Lerp(1, 0, timePassed / iTimePassed);
             yield return null;
-        }      
+        }
     }
 
     public IEnumerator TypewriterEffect()
     {
         isPlaying = true;
-        while(diaLine.maxVisibleCharacters < diaLine.text.Length)
+        while (diaLine.maxVisibleCharacters < diaLine.text.Length)
         {
             diaLine.maxVisibleCharacters++;
-            List<string> forbiddenChars = new List<string>{" ", ",", ".", "!", "?", "\"", "'", "$", "-", "_", ":"};
-            if(!forbiddenChars.Contains(diaLine.text[diaLine.maxVisibleCharacters - 1].ToString())) diaSoundPlayer.PlayOneShot(diaSoundClip);
+            List<string> forbiddenChars = new List<string> { " ", ",", ".", "!", "?", "\"", "'", "$", "-", "_", ":" };
+            if (!forbiddenChars.Contains(diaLine.text[diaLine.maxVisibleCharacters - 1].ToString())) diaSoundPlayer.PlayOneShot(diaSoundClip);
             yield return new WaitForSeconds(tSpeed);
-        } 
-        
-        if(diaLine.maxVisibleCharacters >= diaLine.text.Length){
-            isPlaying = false; 
+        }
+
+        if (diaLine.maxVisibleCharacters >= diaLine.text.Length)
+        {
+            isPlaying = false;
             yield return null;
         }
 
@@ -141,17 +144,19 @@ public class GameManager : MonoBehaviour
             choiceLeft.text = "";
             choiceRight.text = "";
 
-            if(dia.profileDirection == DialogueRow.ProfileDirection.Left && !choiceMode)
+            if (dia.profileDirection == DialogueRow.ProfileDirection.Left && !choiceMode)
             {
                 imgLeft.gameObject.SetActive(true);
                 imgLeft.sprite = dia.talkSprite;
                 imgRight.gameObject.SetActive(false);
-            } else if (!choiceMode)
+            }
+            else if (!choiceMode)
             {
                 imgRight.gameObject.SetActive(true);
                 imgRight.sprite = dia.talkSprite;
                 imgLeft.gameObject.SetActive(false);
-            } else
+            }
+            else
             {
                 imgLeft.gameObject.SetActive(false);
                 imgRight.gameObject.SetActive(false);
@@ -165,7 +170,7 @@ public class GameManager : MonoBehaviour
 
             diaSoundClip = dia.talkSound;
 
-            if(!choiceMode) yield return StartCoroutine(TypewriterEffect());
+            if (!choiceMode) yield return StartCoroutine(TypewriterEffect());
             yield return new WaitUntil(() => inputPressed);
         }
 
@@ -176,6 +181,8 @@ public class GameManager : MonoBehaviour
             dialogueStarted = false;
             dialogueJustPlayed = true;
             usingChest = false; // keep note
+
+            lines.Clear();
         }
     }
 
@@ -185,33 +192,35 @@ public class GameManager : MonoBehaviour
 
         if (choiceMode)
         {
-            if(!dMat.alreadyTalked){   
+            if (!dMat.alreadyTalked)
+            {
                 ChoiceResult choice = lines[currentLineIndex - 1].choiceResult;
                 switch (choice.choiceType1)
                 {
                     case ChoiceResult.ChoiceType.Message:
-                        if(currentChoice == 1)
+                        if (currentChoice == 1)
                         {
                             lines.AddRange(choice.message1);
 
-                        } 
+                        }
                         hasAlreadyUsed.Add(choice, true);
                         break;
                     case ChoiceResult.ChoiceType.Item:
-                        if(currentChoice == 1)
+                        if (currentChoice == 1)
                         {
-                            if(!usingChest) inventoryCopy.Add(choice.item1);
-                            else if(usingChest && chestToUse.hasBeenUnlocked == false) { 
-                                foreach(Item item in chestToUse.chest.contents){ lines.Add(new DialogueRow($"Hey, look! We got a new {item.name}!", abbeyGenericTalkFace, DialogueRow.ProfileDirection.Left, abbeyTalkSound, null, false)); inventoryCopy.Add(item); }
+                            if (!usingChest) inventoryCopy.Add(choice.item1);
+                            else if (usingChest && chestToUse.hasBeenUnlocked == false)
+                            {
+                                foreach (Item item in chestToUse.chest.contents) { lines.Add(new DialogueRow($"Hey, look! We got a new {item.name}!", abbeyGenericTalkFace, DialogueRow.ProfileDirection.Left, abbeyTalkSound, null, false)); inventoryCopy.Add(item); }
                                 chestToUse.hasBeenUnlocked = true;
                                 chestToUse.gameObject.GetComponent<SpriteRenderer>().sprite = finalChestSprite;
                             }
 
                         }
-                        hasAlreadyUsed.Add(choice, true);
+                        hasAlreadyUsed[choice] = true;
                         break;
                     case ChoiceResult.ChoiceType.TakeItem:
-                        if(currentChoice == 1)
+                        if (currentChoice == 1)
                         {
                             inventoryCopy.Remove(choice.item1);
                             // other logic goes here
@@ -222,23 +231,23 @@ public class GameManager : MonoBehaviour
                 switch (choice.choiceType2)
                 {
                     case ChoiceResult.ChoiceType.Message:
-                        if(currentChoice == 2)
+                        if (currentChoice == 2)
                         {
                             lines.AddRange(choice.message2);
-                        } 
-                        hasAlreadyUsed.Add(choice, true);
-                        break;
-                    case ChoiceResult.ChoiceType.Item:
-                        if(currentChoice == 2)
-                        {
-                            if(!usingChest) inventoryCopy.Add(choice.item2);
-                            else lines.Add(new DialogueRow("I'll pass...", abbeyGenericTalkFace, DialogueRow.ProfileDirection.Left, abbeyTalkSound, null, false));
-
                         }
                         hasAlreadyUsed.Add(choice, true);
                         break;
+                    case ChoiceResult.ChoiceType.Item:
+                        if (currentChoice == 2)
+                        {
+                            if (!usingChest) inventoryCopy.Add(choice.item2);
+                            else lines.Add(new DialogueRow("I'll pass...", abbeyGenericTalkFace, DialogueRow.ProfileDirection.Left, abbeyTalkSound, null, false));
+
+                        }
+                        hasAlreadyUsed[choice] = true;
+                        break;
                     case ChoiceResult.ChoiceType.TakeItem:
-                        if(currentChoice == 2)
+                        if (currentChoice == 2)
                         {
                             inventoryCopy.Remove(choice.item2);
                             // other logic here
@@ -252,15 +261,16 @@ public class GameManager : MonoBehaviour
             if (dMat.alreadyTalked)
             {
                 ChoiceResult choice = lines[currentLineIndex - 1].choiceResult;
-                if(dMat.choiceChosen == 1) lines.AddRange(choice.messageIfAlreadyGotten1);
-                if(dMat.choiceChosen == 2) lines.AddRange(choice.messageIfAlreadyGotten2);
+                if (dMat.choiceChosen == 1) lines.AddRange(choice.messageIfAlreadyGotten1);
+                if (dMat.choiceChosen == 2) lines.AddRange(choice.messageIfAlreadyGotten2);
             }
         }
 
         if (isPlaying)
         {
             diaLine.maxVisibleCharacters = diaLine.text.Length;
-        } else if (diaLine.maxVisibleCharacters == diaLine.text.Length)
+        }
+        else if (diaLine.maxVisibleCharacters == diaLine.text.Length)
         {
             inputPressed = true;
         }
@@ -269,7 +279,8 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
-        if(inDialogueMode && !dialogueJustPlayed){
+        if (inDialogueMode && !dialogueJustPlayed)
+        {
             lineCount = dialogue.dialogueRows.Count;
             lines = dialogue.dialogueRows;
             dialogueStarted = true;
@@ -277,25 +288,26 @@ public class GameManager : MonoBehaviour
             StartCoroutine(DisplayDialogue());
         }
 
-        if(!inDialogueMode && abbey.GetComponent<PlayerMovement>())
+        if (!inDialogueMode && abbey.GetComponent<PlayerMovement>())
         {
             // chest logic
         }
-        
+
         if (dialogueKeyReference.action.WasPressedThisFrame())
         {
             StartCoroutine(ButtonPressLogic());
         }
 
-        if(moveKeyReference.action.ReadValue<Vector2>()[0] != 0 && choiceMode)
+        if (moveKeyReference.action.ReadValue<Vector2>()[0] != 0 && choiceMode)
         {
             float directionalPress = moveKeyReference.action.ReadValue<Vector2>()[0];
-            if(directionalPress > 0)
+            if (directionalPress > 0)
             {
                 choiceRight.color = Color.yellow;
                 choiceLeft.color = Color.white;
                 currentChoice = 2;
-            } else if(directionalPress < 0)
+            }
+            else if (directionalPress < 0)
             {
                 choiceLeft.color = Color.yellow;
                 choiceRight.color = Color.white;
@@ -306,7 +318,7 @@ public class GameManager : MonoBehaviour
 
     public void UseRoom(Item item)
     {
-        if(item.objectType != ItemType.Room) throw new ArgumentException($"UseRoom() cannot accept Items of type {item.objectType}");
+        if (item.objectType != ItemType.Room) throw new ArgumentException($"UseRoom() cannot accept Items of type {item.objectType}");
         RoomContainer rc = roomsList.Where(p => p.GetComponent<RoomContainer>().room.roomId == item.roomID).Select(p => p.GetComponent<RoomContainer>()).ToList()[0];
         rc.isEnabled = true;
         rc.gameObject.SetActive(true);
