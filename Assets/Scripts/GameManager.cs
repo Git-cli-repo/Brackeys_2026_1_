@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using Newtonsoft.Json;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEditor.ShaderGraph.Internal;
@@ -52,6 +53,7 @@ public class GameManager : MonoBehaviour
     public AudioClip abbeyTalkSound;
     public Sprite abbeyGenericTalkFace;
     public Sprite finalChestSprite;
+    public bool inventoryActive;
     void Awake()
     {
         Instance = this;
@@ -314,4 +316,18 @@ public class GameManager : MonoBehaviour
         bc.enabled = false;
         bc.gameObject.SetActive(false);
     }
+    
+    public void LoadSaveFromJSON()
+    {
+        
+    }
+
+    public void SaveToJSON()
+    {  
+        SaveData sv = new SaveData();
+        // Initialize SaveData through iteration
+        JsonConvert.SerializeObject(sv);
+        // Save to Application.PersistentDataPath....
+    }
+    
 }

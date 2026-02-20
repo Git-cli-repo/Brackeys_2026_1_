@@ -28,7 +28,7 @@ public class PlayerMovement : MonoBehaviour
     {
         Vector2 moveActionRead = moveAction.action.ReadValue<Vector2>();
         
-        if(!GameManager.Instance.inDialogueMode) body.linearVelocity = new Vector2(moveActionRead[0] * speedX, moveActionRead[1] * speedY);
+        if(!GameManager.Instance.inDialogueMode || !GameManager.Instance.inventoryActive) body.linearVelocity = new Vector2(moveActionRead[0] * speedX, moveActionRead[1] * speedY);
         else body.linearVelocity = new Vector2(0, 0);
         if(body.linearVelocity == new Vector2(0, 0)) abbeyAnimator.speed = 0;
         else { 
