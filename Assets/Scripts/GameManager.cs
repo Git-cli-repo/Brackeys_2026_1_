@@ -46,6 +46,7 @@ public class GameManager : MonoBehaviour
     public Dictionary<ChoiceResult, bool> hasAlreadyUsed = new Dictionary<ChoiceResult, bool>();
     public DMat dMat;
     public bool dialogueJustPlayed = false;
+    public bool enteredDiaTrigger = false;
     void Awake()
     {
         Instance = this;
@@ -256,7 +257,7 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
-        if(!dialogueStarted && !dialogueJustPlayed){
+        if(inDialogueMode && !dialogueJustPlayed){
             lineCount = dialogue.dialogueRows.Count;
             lines = dialogue.dialogueRows;
             dialogueStarted = true;

@@ -15,7 +15,7 @@ public class Item : ScriptableObject
     public string itemName;
     public ItemType objectType;
     public bool Encrypted;
-    public Texture itemIcon;
+    public Sprite itemIcon;
 
     [Space]
 
