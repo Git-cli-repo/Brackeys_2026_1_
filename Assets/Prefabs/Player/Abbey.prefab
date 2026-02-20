@@ -45,6 +45,7 @@ GameObject:
   - component: {fileID: 4208524778167388645}
   - component: {fileID: 6276615346446412735}
   - component: {fileID: 1415106216515716075}
+  - component: {fileID: -1906835881410208873}
   m_Layer: 0
   m_Name: Abbey
   m_TagString: Player
@@ -242,3 +243,22 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &-1906835881410208873
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7196457508493777718}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ccee316f4810c461f8bd88d69905d143, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerController
+  baseOffense: 1
+  baseDefense: 1
+  maxHp: 20
+  attackFrequency: 0.5
+  offense: 0
+  defense: 0
+  hp: 0
