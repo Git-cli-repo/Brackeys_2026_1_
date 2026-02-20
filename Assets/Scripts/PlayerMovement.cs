@@ -45,13 +45,19 @@ public class PlayerMovement : MonoBehaviour
     public void OnTriggerEnter2D(Collider2D collision)
     {
         Debug.Log("Entered");
-        if(collision.gameObject.TryGetComponent<DMat>(out DMat dialogue) && !GameManager.Instance.dialogueJustPlayed)
+        if(collision.gameObject.TryGetComponent<DMat>(out DMat dialogue) && !GameManager.Instance.dialogueJustPlayed && GameManager.Instance.dialogueKeyReference.action.ReadValue<float>() > 0)
         {
             Debug.Log("Began Dialogue");
             GameManager.Instance.inDialogueMode = true;
             GameManager.Instance.dialogue = dialogue.dialogue;
             GameManager.Instance.dMat = dialogue;
             GameManager.Instance.enteredDiaTrigger = true;
+
+            if(collision.gameObject.TryGetComponent<ChestContainer>(out ChestContainer chestContainer))
+            {
+                GameManager.Instance.usingChest = true;
+                GameManager.Instance.chestToUse = chestContainer;
+            }
         }
     }
 

@@ -47,6 +47,11 @@ public class GameManager : MonoBehaviour
     public DMat dMat;
     public bool dialogueJustPlayed = false;
     public bool enteredDiaTrigger = false;
+    public bool usingChest = false;
+    public ChestContainer chestToUse;
+    public AudioClip abbeyTalkSound;
+    public Sprite abbeyGenericTalkFace;
+    public Sprite finalChestSprite;
     void Awake()
     {
         Instance = this;
@@ -170,6 +175,7 @@ public class GameManager : MonoBehaviour
             inDialogueMode = false;
             dialogueStarted = false;
             dialogueJustPlayed = true;
+            usingChest = false; // keep note
         }
     }
 
@@ -194,7 +200,12 @@ public class GameManager : MonoBehaviour
                     case ChoiceResult.ChoiceType.Item:
                         if(currentChoice == 1)
                         {
-                            inventoryCopy.Add(choice.item1);
+                            if(!usingChest) inventoryCopy.Add(choice.item1);
+                            else if(usingChest && chestToUse.hasBeenUnlocked == false) { 
+                                foreach(Item item in chestToUse.chest.contents){ lines.Add(new DialogueRow($"Hey, look! We got a new {item.name}!", abbeyGenericTalkFace, DialogueRow.ProfileDirection.Left, abbeyTalkSound, null, false)); inventoryCopy.Add(item); }
+                                chestToUse.hasBeenUnlocked = true;
+                                chestToUse.gameObject.GetComponent<SpriteRenderer>().sprite = finalChestSprite;
+                            }
 
                         }
                         hasAlreadyUsed.Add(choice, true);
@@ -220,7 +231,8 @@ public class GameManager : MonoBehaviour
                     case ChoiceResult.ChoiceType.Item:
                         if(currentChoice == 2)
                         {
-                            inventoryCopy.Add(choice.item2);
+                            if(!usingChest) inventoryCopy.Add(choice.item2);
+                            else lines.Add(new DialogueRow("I'll pass...", abbeyGenericTalkFace, DialogueRow.ProfileDirection.Left, abbeyTalkSound, null, false));
 
                         }
                         hasAlreadyUsed.Add(choice, true);
