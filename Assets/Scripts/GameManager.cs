@@ -12,6 +12,7 @@ using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
+    public bool inventoryEnabled;
     public static GameManager Instance;
     public TMP_Text diaLine;
     public CanvasGroup dialogueCanvas;
@@ -251,30 +252,30 @@ public class GameManager : MonoBehaviour
             lines = dialogue.dialogueRows;
             dialogueStarted = true;
             StartCoroutine(DisplayDialogue());
-        }
+          }
 
-        if(!inDialogueMode && abbey.GetComponent<PlayerMovement>())
+        if(inDialogueMode && abbey.GetComponent<PlayerMovement>())
         
-        if (dialogueKeyReference.action.WasPressedThisFrame())
-        {
-            StartCoroutine(ButtonPressLogic());
-        }
-
-        if(moveKeyReference.action.ReadValue<Vector2>()[0] != 0 && choiceMode)
-        {
-            float directionalPress = moveKeyReference.action.ReadValue<Vector2>()[0];
-            if(directionalPress > 0)
+            if (dialogueKeyReference.action.WasPressedThisFrame())
             {
-                choiceRight.color = Color.yellow;
-                choiceLeft.color = Color.white;
-                currentChoice = 2;
-            } else if(directionalPress < 0)
-            {
-                choiceLeft.color = Color.yellow;
-                choiceRight.color = Color.white;
-                currentChoice = 1;
+                StartCoroutine(ButtonPressLogic());
             }
-        }
+
+            if(moveKeyReference.action.ReadValue<Vector2>()[0] != 0 && choiceMode)
+            {
+                float directionalPress = moveKeyReference.action.ReadValue<Vector2>()[0];
+                if(directionalPress > 0)
+                {
+                    choiceRight.color = Color.yellow;
+                    choiceLeft.color = Color.white;
+                    currentChoice = 2;
+                } else if(directionalPress < 0)
+                {
+                    choiceLeft.color = Color.yellow;
+                    choiceRight.color = Color.white;
+                    currentChoice = 1;
+                }
+            }
     }
 
     public void UseRoom(Item item)

@@ -3,6 +3,7 @@ using UnityEngine;
 using System.Collections.Generic;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
+using UnityEngine.Scripting.APIUpdating;
 
 public class InventoryManager : MonoBehaviour
 {
@@ -20,12 +21,17 @@ public class InventoryManager : MonoBehaviour
 
     public int currentPage = 0;
     public int countTo9 = 0;
-    public int Displaypage = 1;
+    public int displayPage = 1;
+
+    public InputActionReference moveAction;
+    float moveY = 0;
+
+    public GameManager gameManager;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        playerController = FindAnyObjectByType<PlayerController>();    
+        playerController = FindAnyObjectByType<PlayerController>();
         testList[0] = new List<Item>();
 
         CreatePages();
@@ -40,7 +46,31 @@ public class InventoryManager : MonoBehaviour
 
             trigger = false;
         }
-        
+
+        if (inventoryUI.activeSelf)
+        {
+            Vector2 moveActionRead = moveAction.action.ReadValue<Vector2>();
+
+            moveY = moveActionRead[0];
+
+            if (moveY > 0)
+            {
+                displayPage += 1;
+                if (displayPage > testList.Count)
+                {
+                    displayPage = 0;
+                }
+            }
+            else if (moveY < 0)
+            {
+                displayPage -= 1;
+
+                if (displayPage < 0)
+                {
+                    displayPage = testList.Count;
+                }
+            }
+        }
     }
 
     public void UseItem(Item item)
@@ -81,7 +111,9 @@ public class InventoryManager : MonoBehaviour
             else if (item.objectType == ItemType.Email)
             {
                 //Dialogue
-            } else if(item.objectType == ItemType.Room) {
+            }
+            else if (item.objectType == ItemType.Room)
+            {
                 GameManager.Instance.UseRoom(item);
             }
             else
@@ -119,17 +151,21 @@ public class InventoryManager : MonoBehaviour
 
             countTo9++;
         }
+    }
 
-        Debug.Log($"List count: {testList.Keys.Count}");
-        
-        foreach (int i in testList.Keys)
-        {
-            Debug.Log($"testList has key: {i}");
-        }
-
+    public void LoadPage()
+    {
         for (int i = 0; i < 9; i++)
         {
-            inventoryImages[i].texture = testList[Displaypage][i].itemIcon;
+            inventoryImages[i].texture = testList[displayPage][i].itemIcon;
         }
     }
+
+    public void OpenInventory()
+    {
+        inventoryUI.SetActive(true);
+
+        CreatePages();
+    }
+
 }
