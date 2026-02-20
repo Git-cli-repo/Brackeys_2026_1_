@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 04e5c1e45c49d08409cecc88a15ff7dc
+guid: ff0f480199efd4e65bfecd3759f9feb8
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -6834524911116659543
-    second: chest_0
+      213: 4938786053734960025
+    second: Spider_boss_down_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -37,7 +37,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 0
+    filterMode: 1
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -100,45 +100,23 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: chest_0
+      name: Spider_boss_down_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 80
-        height: 120
+        x: 29
+        y: 64
+        width: 262
+        height: 197
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 9a45550edc3e621a0800000000000000
-      internalID: -6834524911116659543
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: chest_1
-      rect:
-        serializedVersion: 2
-        x: 80
-        y: 0
-        width: 80
-        height: 120
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: aec4d7216376cc745b1f49b1896c4000
-      internalID: 1240835493
+      spriteID: 99b8682cfb71a8440800000000000000
+      internalID: 4938786053734960025
       vertices: []
       indices: 
       edges: []
@@ -147,7 +125,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 8d1c3a1397c41a148916702371fd5962
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -155,12 +133,9 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries:
-      - key: SpriteEditor.SliceSettings
-        value: '{"sliceOnImport":false,"gridCellCount":{"x":2.0,"y":1.0},"gridSpriteSize":{"x":80.0,"y":120.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
+      entries: []
     nameFileIdTable:
-      chest_0: -6834524911116659543
-      chest_1: 1240835493
+      Spider_boss_down_0: 4938786053734960025
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a351c7e3e52f41b798b566725c122ca, type: 3}
   m_Name: Room 2 Item
   m_EditorClassIdentifier: Assembly-CSharp::Item
-  itemName: 
-  objectType: 0
+  itemName: Room 2
+  objectType: 3
   Encrypted: 0
   itemIcon: {fileID: 0}
   attackFrequency: 0
@@ -25,6 +25,6 @@ MonoBehaviour:
   maxHpIncrease: 0
   heal: 0
   hpRegain: 0
-  roomID: 0
+  roomID: 2
   decryptedItem: {fileID: 0}
   contents: {fileID: 0}

@@ -1,10 +1,19 @@
 fileFormatVersion: 2
-guid: 04e5c1e45c49d08409cecc88a15ff7dc
+guid: 7731d6b4745da4535b8ba8d15b997704
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -6834524911116659543
-    second: chest_0
+      213: -3994744024693093290
+    second: Dog_0
+  - first:
+      213: 3704152636332655822
+    second: Dog_1
+  - first:
+      213: 2313711220228016618
+    second: Dog_2
+  - first:
+      213: 657091380636090156
+    second: Dog_3
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -37,7 +46,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 0
+    filterMode: 1
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -100,45 +109,89 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: chest_0
+      name: Dog_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 80
-        height: 120
+        x: 4
+        y: 84
+        width: 72
+        height: 72
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 9a45550edc3e621a0800000000000000
-      internalID: -6834524911116659543
+      spriteID: 65ccd8f7971df88c0800000000000000
+      internalID: -3994744024693093290
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: chest_1
+      name: Dog_1
       rect:
         serializedVersion: 2
-        x: 80
-        y: 0
-        width: 80
-        height: 120
+        x: 99
+        y: 84
+        width: 42
+        height: 67
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: aec4d7216376cc745b1f49b1896c4000
-      internalID: 1240835493
+      spriteID: ec44f62823bc76330800000000000000
+      internalID: 3704152636332655822
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dog_2
+      rect:
+        serializedVersion: 2
+        x: 19
+        y: 4
+        width: 42
+        height: 67
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ae9c682a814fb1020800000000000000
+      internalID: 2313711220228016618
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dog_3
+      rect:
+        serializedVersion: 2
+        x: 84
+        y: 4
+        width: 72
+        height: 72
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c2ff8c711257e1900800000000000000
+      internalID: 657091380636090156
       vertices: []
       indices: 
       edges: []
@@ -147,7 +200,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 8d1c3a1397c41a148916702371fd5962
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -155,12 +208,12 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries:
-      - key: SpriteEditor.SliceSettings
-        value: '{"sliceOnImport":false,"gridCellCount":{"x":2.0,"y":1.0},"gridSpriteSize":{"x":80.0,"y":120.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
+      entries: []
     nameFileIdTable:
-      chest_0: -6834524911116659543
-      chest_1: 1240835493
+      Dog_0: -3994744024693093290
+      Dog_1: 3704152636332655822
+      Dog_2: 2313711220228016618
+      Dog_3: 657091380636090156
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
