@@ -15,7 +15,7 @@ public class ItemObject : MonoBehaviour
     {
         if (collision.tag == "Player")
         {
-            inventoryManager.GetItem(item);
+            inventoryManager.AddItem(item);
 
             //Animation/sound
 

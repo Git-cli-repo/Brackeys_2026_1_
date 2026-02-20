@@ -14,8 +14,8 @@ public class Item : ScriptableObject
 {
     public string itemName;
     public ItemType objectType;
-    public bool Encrypted;
     public Sprite itemIcon;
+    public bool Encrypted;
 
     [Space]
 

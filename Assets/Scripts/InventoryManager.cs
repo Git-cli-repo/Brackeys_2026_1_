@@ -7,6 +7,7 @@ using UnityEngine.Scripting.APIUpdating;
 using System.Collections;
 using System.Linq;
 using UnityEngine.EventSystems;
+using Unity.VisualScripting;
 
 public class InventoryManager : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
@@ -27,6 +28,7 @@ public class InventoryManager : MonoBehaviour, IPointerEnterHandler, IPointerExi
     public List<Sprite> inventoryImages;
 
     public Dictionary<ItemType, Sprite> sprReference;
+    public InputActionReference inventoryEnableKey;
 
     Dictionary<int, List<Item>> testList = new Dictionary<int, List<Item>>();
 
@@ -56,6 +58,7 @@ public class InventoryManager : MonoBehaviour, IPointerEnterHandler, IPointerExi
 
         inventoryUI.GetComponent<Tooltip>().gameObject.SetActive(false);
 
+        GameManager.Instance.inventoryActive = false;
 
         CreatePages();
     }
@@ -69,30 +72,35 @@ public class InventoryManager : MonoBehaviour, IPointerEnterHandler, IPointerExi
             trigger = false;
         }
 
-        if (inventoryUI.activeSelf && !cooldown)
+        if (inventoryEnableKey.action.WasPressedThisFrame())
+        {
+            inventoryUI.SetActive(!GameManager.Instance.inventoryActive);
+            GameManager.Instance.inventoryActive = !GameManager.Instance.inventoryActive;
+        }
+
+        if (GameManager.Instance.inventoryActive && !cooldown)
         {
             Vector2 moveActionRead = moveAction.action.ReadValue<Vector2>();
             moveY = moveActionRead[0];
 
             if (moveY > 0)
             {
-                DampenLogic();
+                StartCooldown();
                 
-                displayPage += 1;
-                if (displayPage > testList.Count)
+                if (displayPage + 1 > testList.Keys.Count)
                 {
                     displayPage = 0;
+                } else {
+                    displayPage++;
                 }
-            }
-            else if (moveY < 0)
-            {
-                DampenLogic();
-
-                displayPage -= 1;
-
-                if (displayPage < 0)
+            } else if (moveY < 0) {
+                StartCooldown();
+                
+                if (displayPage - 1 < 0)
                 {
-                    displayPage = testList.Count;
+                    displayPage = testList.Keys.Count;
+                } else {
+                    displayPage--;
                 }
             }
         }
@@ -153,33 +161,39 @@ public class InventoryManager : MonoBehaviour, IPointerEnterHandler, IPointerExi
         inventory.Remove(item);
     }
 
-    public void GetItem(Item item)
+    public void AddItem(Item item)
     {
         inventory.Add(item);
     }
 
     public void CreatePages()
     {
+        for(int i = 0; i < Mathf.Ceil(inventory.Count / 9); i++) testList[i] = new List<Item>();
+        
         foreach (Item it in inventory)
         {
-            if (countTo9 < 9)
+            Debug.Log($"Name {it.name}, countTo9 {countTo9}, currentPage {currentPage}");
+            while(countTo9 < 9)
             {
                 testList[currentPage].Add(it);
+                countTo9++;
             }
-            else
+
+            if(countTo9 + 1 >= 9)
             {
                 countTo9 = 0;
                 currentPage++;
-                testList[currentPage] = new List<Item>();
             }
-
-            countTo9++;
         }
     }
 
     public void LoadPage()
     {
         inventoryImages = testList[displayPage].Select(p => !p.Encrypted ? sprReference[p.objectType] : encryptedImage).ToList();
+        for(int i = 0; i < testList[displayPage].Count; i++)
+        {
+            
+        }
     }
 
     public void OpenInventory()
@@ -189,17 +203,33 @@ public class InventoryManager : MonoBehaviour, IPointerEnterHandler, IPointerExi
         CreatePages();
     }
 
-    public IEnumerator DampenLogic()
+    public IEnumerator StartCooldown()
     {
         cooldown = true;
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(1f);
         cooldown = false;
     }
 
     // --------------------------- Pointer Logic -------------------------------
     public void OnPointerEnter(PointerEventData pdata)
     {
-        // pdata.hovered[0].GetComponent<ItemContainer>();
+        ItemContainer im = pdata.hovered[0].GetComponent<ItemContainer>();
+        string text = "";
+        switch (im.item.objectType)
+        {
+          case ItemType.Weapon:
+          text = $"Frequency: {im.item.attackFrequency}\nOffense Increase: {im.item.offenseIncrease}";
+          break;
+          case ItemType.Armor:
+          text = $"Defense Increase: {im.item.defenseIncrease}";
+          break;  
+          case ItemType.Consumable:
+          text = $"BDI: {im.item.baseDefenseIncrease}\nBOI: {im.item.baseOffenseIncrease}\nMax HP Inc.: {im.item.maxHpIncrease}\nHeal Amount: {im.item.hpRegain}";
+          break;
+          case ItemType.Room:
+          text = $"Room ID: {im.item.roomID}";
+          break;
+        }
     }
 
     public void OnPointerExit(PointerEventData pdata)
