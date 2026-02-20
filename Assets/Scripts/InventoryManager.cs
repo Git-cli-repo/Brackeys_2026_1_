@@ -2,6 +2,7 @@ using NUnit.Framework;
 using UnityEngine;
 using System.Collections.Generic;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
 
 public class InventoryManager : MonoBehaviour
 {
@@ -12,10 +13,22 @@ public class InventoryManager : MonoBehaviour
     public Item equippedArmor;
     public int useItem;
 
+    public GameObject inventoryUI;
+    public List<RawImage> inventoryImages;
+
+    Dictionary<int, List<Item>> testList = new Dictionary<int, List<Item>>();
+
+    public int currentPage = 0;
+    public int countTo9 = 0;
+    public int Displaypage = 1;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        playerController = FindAnyObjectByType<PlayerController>();
+        playerController = FindAnyObjectByType<PlayerController>();    
+        testList[0] = new List<Item>();
+
+        CreatePages();
     }
 
     // Update is called once per frame
@@ -27,6 +40,7 @@ public class InventoryManager : MonoBehaviour
 
             trigger = false;
         }
+        
     }
 
     public void UseItem(Item item)
@@ -77,12 +91,43 @@ public class InventoryManager : MonoBehaviour
         {
             return;
         }
-       
+
         inventory.Remove(item);
     }
 
     public void GetItem(Item item)
     {
         inventory.Add(item);
+    }
+
+    public void CreatePages()
+    {
+        foreach (Item it in inventory)
+        {
+            if (countTo9 < 9)
+            {
+                testList[currentPage].Add(it);
+            }
+            else
+            {
+                countTo9 = 0;
+                currentPage++;
+                testList[currentPage] = new List<Item>();
+            }
+
+            countTo9++;
+        }
+
+        Debug.Log($"List count: {testList.Keys.Count}");
+        
+        foreach (int i in testList.Keys)
+        {
+            Debug.Log($"testList has key: {i}");
+        }
+
+        for (int i = 0; i < 9; i++)
+        {
+            inventoryImages[i].texture = testList[Displaypage][i].itemIcon;
+        }
     }
 }

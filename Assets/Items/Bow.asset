@@ -15,6 +15,7 @@ MonoBehaviour:
   itemName: 
   objectType: 1
   Encrypted: 0
+  itemIcon: {fileID: 2800000, guid: 42b3a737cf401404883d2f6aa6455261, type: 3}
   attackFrequency: 0
   offenseIncrease: 0
   defenseIncrease: 1
