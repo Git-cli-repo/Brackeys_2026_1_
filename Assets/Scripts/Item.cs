@@ -42,6 +42,11 @@ public class Item : ScriptableObject
 
     [Space]
 
+    [Header("Room Options")]
+    public int roomID;
+
+    [Space]
+
     [Header("Encrypted Options")]
     public Item decryptedItem;
 

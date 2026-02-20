@@ -81,6 +81,8 @@ public class InventoryManager : MonoBehaviour
             else if (item.objectType == ItemType.Email)
             {
                 //Dialogue
+            } else if(item.objectType == ItemType.Room) {
+                GameManager.Instance.UseRoom(item);
             }
             else
             {

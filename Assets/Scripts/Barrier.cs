@@ -1,7 +1,7 @@
 using UnityEngine;
 
 
-[CreateAssetMenu(fileName = "New Room", menuName = "Room File")]
+[CreateAssetMenu(fileName = "New Room", menuName = "Barrier")]
 public class Barrier : ScriptableObject
 {
     public int roomId;

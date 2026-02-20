@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -40,6 +41,8 @@ public class GameManager : MonoBehaviour
     public List<Item> inventoryCopy;
     public GameObject abbey;
     public Dictionary<int, int> choiceValueStorage = new Dictionary<int, int>();
+    public List<GameObject> roomsList = new List<GameObject>();
+    public List<GameObject> barrierList = new List<GameObject>();
     public Dictionary<ChoiceResult, bool> hasAlreadyUsed = new Dictionary<ChoiceResult, bool>();
     void Awake()
     {
@@ -51,6 +54,27 @@ public class GameManager : MonoBehaviour
         dialogueCanvas.alpha = 0;
         abbey = GameObject.FindFirstObjectByType<PlayerMovement>().gameObject;
         inventoryCopy = GameObject.FindFirstObjectByType<InventoryManager>().inventory;
+
+        // this logic lives in start temporarily - need a more reliable hook 
+        // for example, OnActiveSceneChanged()
+
+        // Initialize lists + search
+        roomsList = GameObject.FindObjectsByType<RoomContainer>(FindObjectsSortMode.None).Select(p => p.gameObject).ToList();
+        barrierList = GameObject.FindObjectsByType<BarrierContainer>(FindObjectsSortMode.None).Select(p => p.gameObject).ToList();
+
+        // Disable 
+        foreach(RoomContainer rm in roomsList.Select(p => p.GetComponent<RoomContainer>()))
+        {
+            rm.isEnabled = false;
+            rm.gameObject.SetActive(false);
+        }
+
+        // Enable
+        foreach(BarrierContainer bc in barrierList.Select(p => p.GetComponent<BarrierContainer>()))
+        {
+            bc.enabled = true;
+            bc.gameObject.SetActive(true);
+        }
     }
 
     public IEnumerator FadeIn()
@@ -222,16 +246,15 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
-        if (inDialogueMode)
-        {
-            if(!dialogueStarted){
-                lineCount = dialogue.dialogueRows.Count;
-                lines = dialogue.dialogueRows;
-                dialogueStarted = true;
-                StartCoroutine(DisplayDialogue());
-            }
+        if(!dialogueStarted){
+            lineCount = dialogue.dialogueRows.Count;
+            lines = dialogue.dialogueRows;
+            dialogueStarted = true;
+            StartCoroutine(DisplayDialogue());
         }
 
+        if(!inDialogueMode && abbey.GetComponent<PlayerMovement>())
+        
         if (dialogueKeyReference.action.WasPressedThisFrame())
         {
             StartCoroutine(ButtonPressLogic());
@@ -252,5 +275,16 @@ public class GameManager : MonoBehaviour
                 currentChoice = 1;
             }
         }
+    }
+
+    public void UseRoom(Item item)
+    {
+        if(item.objectType != ItemType.Room) throw new ArgumentException($"UseRoom() cannot accept Items of type {item.objectType}");
+        RoomContainer rc = roomsList.Where(p => p.GetComponent<RoomContainer>().room.roomId == item.roomID).Select(p => p.GetComponent<RoomContainer>()).ToList()[0];
+        rc.isEnabled = true;
+        rc.gameObject.SetActive(true);
+        BarrierContainer bc = barrierList.Where(p => p.GetComponent<BarrierContainer>().barrier.roomId == item.roomID).Select(p => p.GetComponent<BarrierContainer>()).ToList()[0];
+        bc.enabled = false;
+        bc.gameObject.SetActive(false);
     }
 }
