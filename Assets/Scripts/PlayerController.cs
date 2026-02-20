@@ -29,6 +29,7 @@ public class PlayerController : MonoBehaviour
     {
         offense = baseOffense;
         defense = baseDefense;
+        attackCoolDownTimer = attackCoolDownTime;
     }
 
     // Update is called once per frame
@@ -47,29 +48,25 @@ public class PlayerController : MonoBehaviour
 
         attackCoolDownTimer -= Time.deltaTime;
 
-
         float attacking = attackAction.action.ReadValue<float>();
-        if (attacking > 0f)
+        if (attacking > 0f && attackCoolDownTimer <= 0)
+        {
+            attackCoolDownTimer = attackCoolDownTime;
             Debug.Log("Player Attacked");
             SwordAttack();
-
+        }
     }
     
     public void SwordAttack()
     {
-        if (attackCoolDownTimer <= 0)
+        Debug.Log("Attack made");
+
+        foreach (GameObject GO in hitbox.detectedObjects)
         {
-            attackCoolDownTimer = attackCoolDownTime;
+            detectedEnemy = GO.GetComponent<EnemyController>();
 
-            foreach (GameObject GO in hitbox.detectedObjects)
-            {
-                if (GO.tag == "Enemy")
-                {
-                    detectedEnemy = GO.GetComponent<EnemyController>();
-
-                    detectedEnemy.Damage(baseOffense);
-                }
-            }
+            detectedEnemy.Damage(baseOffense);
+            Debug.Log("Damaged enemy");
         }
     }
 }

@@ -85,6 +85,7 @@ public class EnemyController : MonoBehaviour
 
     public void Damage(float damage)
     {
+        
         health -= damage * (1 - defense);
 
         StartCoroutine(FlashWhite());

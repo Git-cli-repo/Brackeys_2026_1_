@@ -327,6 +327,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 463949229}
     - target: {fileID: -1906835881410208873, guid: e400984bbc79d8e4ca0d7ef212bd5c4a, type: 3}
+      propertyPath: attackCoolDownTime
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: -1906835881410208873, guid: e400984bbc79d8e4ca0d7ef212bd5c4a, type: 3}
       propertyPath: attackAction.m_Name
       value: Attack
       objectReference: {fileID: 0}

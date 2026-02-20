@@ -29,37 +29,50 @@ public class PlayerMovement : MonoBehaviour
         Vector2 moveActionRead = moveAction.action.ReadValue<Vector2>();
         
         if(!GameManager.Instance.inDialogueMode) body.linearVelocity = new Vector2(moveActionRead[0] * speedX, moveActionRead[1] * speedY);
-            if(body.linearVelocity == new Vector2(0, 0)) abbeyAnimator.speed = 0;
-            else { 
-                abbeyAnimator.speed = 1;
-                abbeyAnimator.SetFloat("moveX", moveActionRead[0]);
-                abbeyAnimator.SetFloat("moveY", moveActionRead[1]);
-            }
-            moveX = abbeyAnimator.GetFloat("moveX");
-            moveY = abbeyAnimator.GetFloat("moveY");
-            speed = abbeyAnimator.speed;
+        else body.linearVelocity = new Vector2(0, 0);
+        if(body.linearVelocity == new Vector2(0, 0)) abbeyAnimator.speed = 0;
+        else { 
+            abbeyAnimator.speed = 1;
+            abbeyAnimator.SetFloat("moveX", moveActionRead[0]);
+            abbeyAnimator.SetFloat("moveY", moveActionRead[1]);
+        }
+        moveX = abbeyAnimator.GetFloat("moveX");
+        moveY = abbeyAnimator.GetFloat("moveY");
+        speed = abbeyAnimator.speed;
         
     }
 
     public void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.gameObject.TryGetComponent<DMat>(out DMat dialogue))
+        Debug.Log("Entered");
+        if(collision.gameObject.TryGetComponent<DMat>(out DMat dialogue) && !GameManager.Instance.dialogueJustPlayed)
         {
+            Debug.Log("Began Dialogue");
             GameManager.Instance.inDialogueMode = true;
             GameManager.Instance.dialogue = dialogue.dialogue;
             GameManager.Instance.dMat = dialogue;
-            StartCoroutine(DampenDialogueExit());
+            GameManager.Instance.enteredDiaTrigger = true;
+        }
+    }
+
+
+    public void OnTriggerStay2D(Collider2D collision)
+    {
+        if (GameManager.Instance.enteredDiaTrigger)
+        {
+            GameManager.Instance.dialogueJustPlayed = true;
         }
     }
 
     public IEnumerator DampenDialogueExit()
     {
         yield return new WaitForSeconds(1f);
-        GameManager.Instance.dialogueJustPlayed = false;
+        
     }
 
     public void OnTriggerExit2D(Collider2D collision)
     {
-        StartCoroutine(DampenDialogueExit());
+        GameManager.Instance.dialogueJustPlayed = false;
+        GameManager.Instance.enteredDiaTrigger = false;    
     }
 }
