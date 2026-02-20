@@ -18,7 +18,6 @@ public class EnemyAttack : ScriptableObject
 
     [Header("Projectile Attack Options")]
     public GameObject Projectile;
-    public GameObject ProjectileSpawnPoint;
 
     [Header("Barrage Attack Options")]
     public float barrageAttackInterval;

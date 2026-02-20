@@ -12,8 +12,9 @@ public class EnemyController : MonoBehaviour
     public float contactDamage;
     public float knockbackForce = 2f;
     public float nextAttackWaitTime;
-    private float nextAttackWaitTimer;
+    public float nextAttackWaitTimer;
     public bool isPlayerSighted;
+    public float playerSightedDistance;
 
     [Space]
 
@@ -30,9 +31,11 @@ public class EnemyController : MonoBehaviour
     private EnemyAttack selectedAttack;
     private GameObject player;
     private Transform playerTransform;
+    private PlayerController playerController;
 
 
     public bool isAttacking = false;
+    public Hitbox hitbox;
 
     private void Start()
     {
@@ -46,6 +49,7 @@ public class EnemyController : MonoBehaviour
         if (player != null)
         {
             playerTransform = player.transform;
+            playerController = player.GetComponent<PlayerController>();
         }
 
         nextAttackWaitTimer = nextAttackWaitTime;
@@ -53,10 +57,23 @@ public class EnemyController : MonoBehaviour
 
     private void Update()
     {
+        if ((transform.position - player.transform.position).magnitude <= playerSightedDistance && !isPlayerSighted)
+        {
+            isPlayerSighted = true;
+         }
+
         if (health <= 0f)
         {
             Die();
             return;
+        }
+
+        if (hitbox.detectedObject)
+        {
+            playerController.Damage(contactDamage, transform.position);
+
+            Vector2 direction = (transform.position - player.transform.position).normalized;
+            StartCoroutine(KnockbackRoutine(direction, 0.1f));
         }
 
         if (!isAttacking)
@@ -65,7 +82,7 @@ public class EnemyController : MonoBehaviour
             {
                 SelectAttack();
             }
-            
+
             if (selectedAttack != null && !isAttacking)
             {
                 isAttacking = true;
@@ -85,7 +102,6 @@ public class EnemyController : MonoBehaviour
 
     public void Damage(float damage)
     {
-        
         health -= damage * (1 - defense);
 
         StartCoroutine(FlashWhite());
@@ -149,7 +165,7 @@ public class EnemyController : MonoBehaviour
 
         for (int i = 0; i < attack.AmountOfAttacks; i++)
         {
-            if (attack.attackType == AttackType.Projectile && attack.Projectile != null)
+            if (attack.attackType == AttackType.Projectile)
             {
                 Instantiate(attack.Projectile, transform.position, Quaternion.identity);
             }
@@ -163,13 +179,5 @@ public class EnemyController : MonoBehaviour
         nextAttackWaitTimer = nextAttackWaitTime;
 
         yield break;
-    }
-
-    void OnTriggerEnter(Collider other)
-    {
-        if (other.tag == "Player")
-        {
-            //Damage Player
-        }
     }
 }
