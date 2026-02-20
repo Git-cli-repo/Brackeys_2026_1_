@@ -256,7 +256,7 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
-        if(!inDialogueMode && !dialogueJustPlayed){
+        if(!dialogueStarted && !dialogueJustPlayed){
             lineCount = dialogue.dialogueRows.Count;
             lines = dialogue.dialogueRows;
             dialogueStarted = true;

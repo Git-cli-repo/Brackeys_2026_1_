@@ -67,14 +67,14 @@ public class InventoryManager : MonoBehaviour
             }
             else if (moveY < 0)
             {
+                DampenLogic();
+
                 displayPage -= 1;
 
                 if (displayPage < 0)
                 {
                     displayPage = testList.Count;
                 }
-
-                DampenLogic();
             }
         }
     }
