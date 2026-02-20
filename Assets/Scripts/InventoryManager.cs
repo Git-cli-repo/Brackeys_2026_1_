@@ -26,7 +26,7 @@ public class InventoryManager : MonoBehaviour, IPointerEnterHandler, IPointerExi
     public GameObject inventoryUI;
     public List<Sprite> inventoryImages;
 
-    Dictionary<ItemType, Sprite> sprReference;
+    public Dictionary<ItemType, Sprite> sprReference;
 
     Dictionary<int, List<Item>> testList = new Dictionary<int, List<Item>>();
 
