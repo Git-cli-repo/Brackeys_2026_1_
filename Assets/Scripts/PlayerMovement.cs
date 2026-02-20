@@ -48,7 +48,6 @@ public class PlayerMovement : MonoBehaviour
             GameManager.Instance.inDialogueMode = true;
             GameManager.Instance.dialogue = dialogue.dialogue;
             GameManager.Instance.dMat = dialogue;
-            StartCoroutine(DampenDialogueExit());
         }
     }
 

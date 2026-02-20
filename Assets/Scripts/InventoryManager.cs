@@ -80,7 +80,9 @@ public class InventoryManager : MonoBehaviour
             }
             else if (item.objectType == ItemType.Email)
             {
-                //Dialogue
+                GameManager.Instance.inDialogueMode = true;
+                GameManager.Instance.dialogue = item.contents;
+                // Skipping DMat - Keep note
             } else if(item.objectType == ItemType.Room) {
                 GameManager.Instance.UseRoom(item);
             }
