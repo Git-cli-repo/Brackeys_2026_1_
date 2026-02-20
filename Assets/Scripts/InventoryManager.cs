@@ -4,10 +4,12 @@ using System.Collections.Generic;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
 using UnityEngine.Scripting.APIUpdating;
+using System.Collections;
 
 public class InventoryManager : MonoBehaviour
 {
     public bool trigger;
+    bool cooldown = false;
     public List<Item> inventory;
     PlayerController playerController;
     public Item equippedWeapon;
@@ -47,7 +49,7 @@ public class InventoryManager : MonoBehaviour
             trigger = false;
         }
 
-        if (inventoryUI.activeSelf)
+        if (inventoryUI.activeSelf && !cooldown)
         {
             Vector2 moveActionRead = moveAction.action.ReadValue<Vector2>();
 
@@ -55,6 +57,8 @@ public class InventoryManager : MonoBehaviour
 
             if (moveY > 0)
             {
+                DampenLogic();
+                
                 displayPage += 1;
                 if (displayPage > testList.Count)
                 {
@@ -69,6 +73,8 @@ public class InventoryManager : MonoBehaviour
                 {
                     displayPage = testList.Count;
                 }
+
+                DampenLogic();
             }
         }
     }
@@ -166,6 +172,13 @@ public class InventoryManager : MonoBehaviour
         inventoryUI.SetActive(true);
 
         CreatePages();
+    }
+
+    public IEnumerator DampenLogic()
+    {
+        cooldown = true;
+        yield return new WaitForSeconds(1);
+        cooldown = false;
     }
 
 }
