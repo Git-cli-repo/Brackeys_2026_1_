@@ -271,7 +271,7 @@ public class GameManager : MonoBehaviour
     {
         if(inDialogueMode && !dialogueJustPlayed){
             lineCount = dialogue.dialogueRows.Count;
-            lines = dialogue.dialogueRows;
+            lines = new List<DialogueRow>(dialogue.dialogueRows);
             dialogueStarted = true;
             inDialogueMode = true;
             StartCoroutine(DisplayDialogue());
