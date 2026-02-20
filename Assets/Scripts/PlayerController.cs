@@ -12,10 +12,17 @@ public class PlayerController : MonoBehaviour
     public float defense;
     public float hp;
 
-    public GameObject hitbox;
+    public float attackCoolDownTime;
+
+    public GameObject hitboxGO;
+    private Hitbox hitbox;
     public int hitboxLocationOffset;
 
-     public InputActionReference moveAction;
+    public InputActionReference moveAction;
+    public InputActionReference attackAction;
+    public float attackCoolDownTimer;
+
+    public EnemyController detectedEnemy;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -30,11 +37,39 @@ public class PlayerController : MonoBehaviour
         Vector2 moveActionRead = moveAction.action.ReadValue<Vector2>();
 
         if (moveActionRead[0] > 0)
-            hitbox.transform.localPosition = new Vector3(hitboxLocationOffset, 0, 0);
-        if (moveActionRead[0] < 0)
-           hitbox.transform.localPosition = new Vector3(hitboxLocationOffset, 0, 0);
-        
+            hitboxGO.transform.localPosition = new Vector3(hitboxLocationOffset, 0, 0);
+        else if (moveActionRead[0] < 0)
+            hitboxGO.transform.localPosition = new Vector3(-hitboxLocationOffset, 0, 0);
+        else if (moveActionRead[1] > 0)
+            hitboxGO.transform.localPosition = new Vector3(0, hitboxLocationOffset, 0);
+        else if (moveActionRead[1] < 0)
+            hitboxGO.transform.localPosition = new Vector3(0, -hitboxLocationOffset, 0);
+
+        attackCoolDownTimer -= Time.deltaTime;
+
+
+        float attacking = attackAction.action.ReadValue<float>();
+        if (attacking > 0f)
+            Debug.Log("Player Attacked");
+            SwordAttack();
+
     }
     
+    public void SwordAttack()
+    {
+        if (attackCoolDownTimer <= 0)
+        {
+            attackCoolDownTimer = attackCoolDownTime;
 
+            foreach (GameObject GO in hitbox.detectedObjects)
+            {
+                if (GO.tag == "Enemy")
+                {
+                    detectedEnemy = GO.GetComponent<EnemyController>();
+
+                    detectedEnemy.Damage(baseOffense);
+                }
+            }
+        }
+    }
 }

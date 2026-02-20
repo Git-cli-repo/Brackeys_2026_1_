@@ -119,6 +119,20 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!114 &802540
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc1515ab76e54f068e2f2207940fab32, type: 3}
+  m_Name: Player/Move
+  m_EditorClassIdentifier: Unity.InputSystem::UnityEngine.InputSystem.InputActionReference
+  m_Asset: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
+  m_ActionId: 351f2ccd-1f9f-44bf-9bec-d62ac5c5f408
 --- !u!1 &13435428
 GameObject:
   m_ObjectHideFlags: 0
@@ -165857,7 +165871,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3506028272976656528, guid: 1fc77fe72e46d428bb2c4abd78bfc3d2, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6240853903562318345, guid: 1fc77fe72e46d428bb2c4abd78bfc3d2, type: 3}
       propertyPath: m_Pivot.x
@@ -174061,7 +174075,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d4cc9e94c1395d4ea2d68b46c06583c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::RoomContainer
-  room: {fileID: 0}
+  room: {fileID: 11400000, guid: 9d563fcaf90874b0286dc657dd09dcde, type: 2}
   isEnabled: 0
 --- !u!1 &1003950188
 GameObject:
@@ -175004,6 +175018,11 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!1 &1025954996 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3506028272976656528, guid: 1fc77fe72e46d428bb2c4abd78bfc3d2, type: 3}
+  m_PrefabInstance: {fileID: 742600907}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1033045724 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8460715660204670841, guid: 26af5a61efb3f4c39bdbad7f314327cb, type: 3}
@@ -352637,6 +352656,25 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 9062528801012450446, guid: 862bc523ed2c143088b03586d011fa1d, type: 3}
   m_PrefabInstance: {fileID: 1502189183}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1516468801 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4555789703564564072, guid: b05bd7021af79094a9b9fde60837db38, type: 3}
+  m_PrefabInstance: {fileID: 621879483258311804}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1516468804
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1516468801}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6959f331dfef93e499fbf5570211aa9f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BarrierContainer
+  barrier: {fileID: 11400000, guid: 0a293a88d81b53a49aa8d509e5884294, type: 2}
+  isEnabled: 0
 --- !u!1001 &1523466454
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -357324,10 +357362,19 @@ MonoBehaviour:
   inventory:
   - {fileID: 11400000, guid: 92c5104ba8bfb435e9ecdc2ed2ed006e, type: 2}
   - {fileID: 11400000, guid: 339d653c8cf9d455884a13a83e5f196b, type: 2}
+  - {fileID: 11400000, guid: 339d653c8cf9d455884a13a83e5f196b, type: 2}
+  - {fileID: 11400000, guid: 339d653c8cf9d455884a13a83e5f196b, type: 2}
+  - {fileID: 11400000, guid: 339d653c8cf9d455884a13a83e5f196b, type: 2}
+  - {fileID: 11400000, guid: 339d653c8cf9d455884a13a83e5f196b, type: 2}
+  - {fileID: 11400000, guid: 339d653c8cf9d455884a13a83e5f196b, type: 2}
+  - {fileID: 11400000, guid: 339d653c8cf9d455884a13a83e5f196b, type: 2}
+  - {fileID: 11400000, guid: 339d653c8cf9d455884a13a83e5f196b, type: 2}
+  - {fileID: 11400000, guid: 339d653c8cf9d455884a13a83e5f196b, type: 2}
+  - {fileID: 11400000, guid: 92c5104ba8bfb435e9ecdc2ed2ed006e, type: 2}
   equippedWeapon: {fileID: 0}
   equippedArmor: {fileID: 0}
   useItem: 0
-  inventoryUI: {fileID: 0}
+  inventoryUI: {fileID: 1025954996}
   inventoryImages:
   - {fileID: 742600917}
   - {fileID: 742600916}
@@ -357340,7 +357387,9 @@ MonoBehaviour:
   - {fileID: 742600908}
   currentPage: 0
   countTo9: 0
-  Displaypage: 1
+  displayPage: 0
+  moveAction: {fileID: 802540}
+  gameManager: {fileID: 0}
 --- !u!4 &1656928286
 Transform:
   m_ObjectHideFlags: 0
@@ -425514,6 +425563,8 @@ MonoBehaviour:
   abbey: {fileID: 0}
   roomsList: []
   barrierList: []
+  dMat: {fileID: 0}
+  dialogueJustPlayed: 0
 --- !u!82 &2062224735
 AudioSource:
   m_ObjectHideFlags: 0
@@ -426642,6 +426693,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1942170511829718698, guid: b05bd7021af79094a9b9fde60837db38, type: 3}
+      propertyPath: m_Size.y
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1942170511829718698, guid: b05bd7021af79094a9b9fde60837db38, type: 3}
+      propertyPath: m_Offset.y
+      value: -0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 4555789703564564072, guid: b05bd7021af79094a9b9fde60837db38, type: 3}
       propertyPath: m_Name
       value: Barrier
@@ -426649,7 +426708,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 4555789703564564072, guid: b05bd7021af79094a9b9fde60837db38, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1516468804}
   m_SourcePrefab: {fileID: 100100000, guid: b05bd7021af79094a9b9fde60837db38, type: 3}
 --- !u!1001 &830988736352164927
 PrefabInstance:
