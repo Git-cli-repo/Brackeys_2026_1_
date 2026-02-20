@@ -12,6 +12,7 @@ public class PlayerMovement : MonoBehaviour
     public float moveX;
     public float moveY;
     public float speed;
+    public bool interactingWithChest = false;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
