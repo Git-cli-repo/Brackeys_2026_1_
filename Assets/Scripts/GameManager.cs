@@ -44,6 +44,7 @@ public class GameManager : MonoBehaviour
     public List<GameObject> roomsList = new List<GameObject>();
     public List<GameObject> barrierList = new List<GameObject>();
     public Dictionary<ChoiceResult, bool> hasAlreadyUsed = new Dictionary<ChoiceResult, bool>();
+    public DMat dMat;
     void Awake()
     {
         Instance = this;
@@ -121,8 +122,9 @@ public class GameManager : MonoBehaviour
         diaLine.maxVisibleCharacters = 0;
         currentLineIndex = 0;
         yield return StartCoroutine(FadeIn());
-        foreach (DialogueRow dia in lines)
+        for (currentLineIndex = 0; currentLineIndex < lines.Count;)
         {
+            DialogueRow dia = lines[currentLineIndex];
             inputPressed = false;
             currentLineIndex++;
             diaLine.text = dia.talkLine;
@@ -174,19 +176,16 @@ public class GameManager : MonoBehaviour
 
         if (choiceMode)
         {
-            if(!hasAlreadyUsed.TryGetValue(lines[currentLineIndex - 1].choiceResult, out bool hasUsed)){   
+            if(!dMat.alreadyTalked){   
                 ChoiceResult choice = lines[currentLineIndex - 1].choiceResult;
-                switch (choice.choiceType)
+                switch (choice.choiceType1)
                 {
                     case ChoiceResult.ChoiceType.Message:
                         if(currentChoice == 1)
                         {
-                            lines[currentLineIndex] = choice.message1;
+                            lines.AddRange(choice.message1);
 
-                        } else if(currentChoice == 2)
-                        {
-                            lines[currentLineIndex] = choice.message2;
-                        }
+                        } 
                         hasAlreadyUsed.Add(choice, true);
                         break;
                     case ChoiceResult.ChoiceType.Item:
@@ -194,43 +193,52 @@ public class GameManager : MonoBehaviour
                         {
                             inventoryCopy.Add(choice.item1);
 
-                        } else if(currentChoice == 2)
-                        {
-                            inventoryCopy.Add(choice.item2);
                         }
                         hasAlreadyUsed.Add(choice, true);
                         break;
-                    // account for SetValue later...
+                    case ChoiceResult.ChoiceType.TakeItem:
+                        if(currentChoice == 1)
+                        {
+                            inventoryCopy.Remove(choice.item1);
+                            // other logic goes here
+                        }
+                        break;
                 }
-            } else if (!hasUsed)
+
+                switch (choice.choiceType2)
+                {
+                    case ChoiceResult.ChoiceType.Message:
+                        if(currentChoice == 2)
+                        {
+                            lines.AddRange(choice.message2);
+                        } 
+                        hasAlreadyUsed.Add(choice, true);
+                        break;
+                    case ChoiceResult.ChoiceType.Item:
+                        if(currentChoice == 2)
+                        {
+                            inventoryCopy.Add(choice.item2);
+
+                        }
+                        hasAlreadyUsed.Add(choice, true);
+                        break;
+                    case ChoiceResult.ChoiceType.TakeItem:
+                        if(currentChoice == 2)
+                        {
+                            inventoryCopy.Remove(choice.item2);
+                            // other logic here
+                        }
+                        break;
+                }
+
+                dMat.alreadyTalked = true;
+                dMat.choiceChosen = currentChoice;
+            }
+            if (dMat.alreadyTalked)
             {
                 ChoiceResult choice = lines[currentLineIndex - 1].choiceResult;
-                switch (choice.choiceType)
-                {
-                    case ChoiceResult.ChoiceType.Message:
-                        if(currentChoice == 1)
-                        {
-                            lines[currentLineIndex] = choice.message1;
-
-                        } else if(currentChoice == 2)
-                        {
-                            lines[currentLineIndex] = choice.message2;
-                        }
-                        hasAlreadyUsed.Add(choice, true);
-                        break;
-                    case ChoiceResult.ChoiceType.Item:
-                        if(currentChoice == 1)
-                        {
-                            inventoryCopy.Add(choice.item1);
-
-                        } else if(currentChoice == 2)
-                        {
-                            inventoryCopy.Add(choice.item2);
-                        }
-                        hasAlreadyUsed.Add(choice, true);
-                        break;
-                    // account for SetValue later...
-                }
+                if(dMat.choiceChosen == 1) lines.AddRange(choice.messageIfAlreadyGotten1);
+                if(dMat.choiceChosen == 2) lines.AddRange(choice.messageIfAlreadyGotten2);
             }
         }
 
@@ -254,6 +262,9 @@ public class GameManager : MonoBehaviour
         }
 
         if(!inDialogueMode && abbey.GetComponent<PlayerMovement>())
+        {
+            // chest logic
+        }
         
         if (dialogueKeyReference.action.WasPressedThisFrame())
         {

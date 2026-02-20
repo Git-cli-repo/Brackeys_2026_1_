@@ -4,5 +4,6 @@ public class DMat : MonoBehaviour
 {
     public int _iDialogueGeneratorID;
     public Dialogue dialogue;
-    public bool alreadyTalked;
+    public bool alreadyTalked = false;
+    public int choiceChosen;
 }
