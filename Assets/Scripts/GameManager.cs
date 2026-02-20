@@ -45,6 +45,7 @@ public class GameManager : MonoBehaviour
     public List<GameObject> barrierList = new List<GameObject>();
     public Dictionary<ChoiceResult, bool> hasAlreadyUsed = new Dictionary<ChoiceResult, bool>();
     public DMat dMat;
+    public bool dialogueJustPlayed = false;
     void Awake()
     {
         Instance = this;
@@ -167,6 +168,7 @@ public class GameManager : MonoBehaviour
             yield return StartCoroutine(FadeOut());
             inDialogueMode = false;
             dialogueStarted = false;
+            dialogueJustPlayed = true;
         }
     }
 
@@ -254,10 +256,11 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
-        if(!dialogueStarted){
+        if(!dialogueStarted && !dialogueJustPlayed){
             lineCount = dialogue.dialogueRows.Count;
             lines = dialogue.dialogueRows;
             dialogueStarted = true;
+            inDialogueMode = true;
             StartCoroutine(DisplayDialogue());
         }
 

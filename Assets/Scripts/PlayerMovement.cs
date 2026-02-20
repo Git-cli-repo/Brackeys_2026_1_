@@ -1,3 +1,5 @@
+using System;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UIElements;
@@ -46,6 +48,18 @@ public class PlayerMovement : MonoBehaviour
             GameManager.Instance.inDialogueMode = true;
             GameManager.Instance.dialogue = dialogue.dialogue;
             GameManager.Instance.dMat = dialogue;
+            StartCoroutine(DampenDialogueExit());
         }
+    }
+
+    public IEnumerator DampenDialogueExit()
+    {
+        yield return new WaitForSeconds(1f);
+        GameManager.Instance.dialogueJustPlayed = false;
+    }
+
+    public void OnTriggerExit2D(Collider2D collision)
+    {
+        StartCoroutine(DampenDialogueExit());
     }
 }
