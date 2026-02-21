@@ -14,19 +14,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Dialogue
   dialogueRows:
   - talkLine: Be careful while travelling, dear.
-    talkSprite: {fileID: -6949200702322379995, guid: b562c4170e110054fb7b421b0f952f2c, type: 3}
+    talkSprite: {fileID: -8416796967603585648, guid: 8fde94a92f59b4c07aec6c498a995dc9, type: 3}
     profileDirection: 0
     talkSound: {fileID: 8300000, guid: edb6bd5c53b65b4409bd57442d67b756, type: 3}
     isChoice: 0
     choiceResult: {fileID: 0}
   - talkLine: Rumor has it that the forest up ahead has a giant spider!
-    talkSprite: {fileID: -6949200702322379995, guid: b562c4170e110054fb7b421b0f952f2c, type: 3}
+    talkSprite: {fileID: -8416796967603585648, guid: 8fde94a92f59b4c07aec6c498a995dc9, type: 3}
     profileDirection: 0
     talkSound: {fileID: 8300000, guid: edb6bd5c53b65b4409bd57442d67b756, type: 3}
     isChoice: 0
     choiceResult: {fileID: 0}
   - talkLine: Although I'm not sure why they call it "Lazy"!
-    talkSprite: {fileID: -6949200702322379995, guid: b562c4170e110054fb7b421b0f952f2c, type: 3}
+    talkSprite: {fileID: -8416796967603585648, guid: 8fde94a92f59b4c07aec6c498a995dc9, type: 3}
     profileDirection: 0
     talkSound: {fileID: 8300000, guid: edb6bd5c53b65b4409bd57442d67b756, type: 3}
     isChoice: 0
@@ -44,7 +44,7 @@ MonoBehaviour:
     isChoice: 0
     choiceResult: {fileID: 0}
   - talkLine: Do take care!
-    talkSprite: {fileID: -6949200702322379995, guid: b562c4170e110054fb7b421b0f952f2c, type: 3}
+    talkSprite: {fileID: -8416796967603585648, guid: 8fde94a92f59b4c07aec6c498a995dc9, type: 3}
     profileDirection: 0
     talkSound: {fileID: 8300000, guid: edb6bd5c53b65b4409bd57442d67b756, type: 3}
     isChoice: 0

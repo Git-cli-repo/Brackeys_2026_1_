@@ -8,9 +8,12 @@ using System.Collections;
 using System.Linq;
 using UnityEngine.EventSystems;
 using Unity.VisualScripting;
+using TMPro;
+using NUnit.Framework.Internal;
 
-public class InventoryManager : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
+public class InventoryManager : MonoBehaviour
 {
+    public static InventoryManager Instance;
     public bool trigger;
     bool cooldown = false;
     public List<Item> inventory;
@@ -25,21 +28,29 @@ public class InventoryManager : MonoBehaviour, IPointerEnterHandler, IPointerExi
     public Sprite armourImage;
     public Sprite emailImage;
     public GameObject inventoryUI;
-    public List<Sprite> inventoryImages;
+    public List<Image> inventoryImages;
 
     public Dictionary<ItemType, Sprite> sprReference;
     public InputActionReference inventoryEnableKey;
 
-    Dictionary<int, List<Item>> testList = new Dictionary<int, List<Item>>();
+    public Dictionary<int, List<Item>> testList = new Dictionary<int, List<Item>>();
+    public List<int> keys = new List<int>();
+    public List<List<Item>> values = new List<List<Item>>();
 
     public int currentPage = 0;
     public int countTo9 = 0;
-    public int displayPage = 1;
+    public int displayPage = 0;
 
     public InputActionReference moveAction;
     float moveY = 0;
 
     public GameManager gameManager;
+
+    void Awake()
+    {
+        Instance = this;
+        DontDestroyOnLoad(Instance);
+    }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -56,8 +67,7 @@ public class InventoryManager : MonoBehaviour, IPointerEnterHandler, IPointerExi
             {ItemType.Room, roomImage}
         };
 
-        inventoryUI.GetComponent<Tooltip>().gameObject.SetActive(false);
-
+        inventoryUI.SetActive(false);
         GameManager.Instance.inventoryActive = false;
 
         CreatePages();
@@ -66,6 +76,13 @@ public class InventoryManager : MonoBehaviour, IPointerEnterHandler, IPointerExi
     // Update is called once per frame
     void Update()
     {
+
+        if (GameManager.Instance.inventoryActive)
+        {
+            keys = testList.Keys.ToList();
+            values = testList.Values.ToList();
+        }
+
         if (trigger)
         {
             UseItem(inventory[useItem]);
@@ -76,6 +93,7 @@ public class InventoryManager : MonoBehaviour, IPointerEnterHandler, IPointerExi
         {
             inventoryUI.SetActive(!GameManager.Instance.inventoryActive);
             GameManager.Instance.inventoryActive = !GameManager.Instance.inventoryActive;
+            if(GameManager.Instance.inventoryActive) {  CreatePages(); displayPage = 0; LoadPage(); }
         }
 
         if (GameManager.Instance.inventoryActive && !cooldown)
@@ -84,25 +102,23 @@ public class InventoryManager : MonoBehaviour, IPointerEnterHandler, IPointerExi
             moveY = moveActionRead[0];
 
             if (moveY > 0)
-            {
-                StartCooldown();
-                
-                if (displayPage + 1 > testList.Keys.Count)
+            {                
+                if (displayPage + 1 > testList.Keys.Count - 1)
                 {
                     displayPage = 0;
                 } else {
                     displayPage++;
                 }
-            } else if (moveY < 0) {
-                StartCooldown();
-                
+            } else if (moveY < 0) {                
                 if (displayPage - 1 < 0)
                 {
-                    displayPage = testList.Keys.Count;
+                    displayPage = testList.Keys.Count - 1;
                 } else {
                     displayPage--;
                 }
             }
+
+            if(moveActionRead != new Vector2(0, 0)) LoadPage();
         }
     }
 
@@ -164,35 +180,64 @@ public class InventoryManager : MonoBehaviour, IPointerEnterHandler, IPointerExi
     public void AddItem(Item item)
     {
         inventory.Add(item);
+        LoadPage();
     }
 
     public void CreatePages()
     {
-        for(int i = 0; i < Mathf.Ceil(inventory.Count / 9); i++) testList[i] = new List<Item>();
+        testList.Clear();
+        countTo9 = 0;
+        currentPage = 0;
+        for(int i = 0; i < Mathf.Ceil((float)inventory.Count / 9); i++) testList[i] = new List<Item>();
         
         foreach (Item it in inventory)
         {
             Debug.Log($"Name {it.name}, countTo9 {countTo9}, currentPage {currentPage}");
-            while(countTo9 < 9)
-            {
-                testList[currentPage].Add(it);
-                countTo9++;
-            }
-
+            
             if(countTo9 + 1 >= 9)
             {
                 countTo9 = 0;
                 currentPage++;
+            } else if (countTo9 < 9)
+            {
+                testList[currentPage].Add(it);
+                countTo9++;
             }
         }
+
+        Debug.Log($"TestList Key Count: {testList.Keys.Count}");
+        Debug.Log($"TestList Value Count: {testList.Values.Count}");
+        int counter = 0;
+        foreach(List<Item> items in testList.Values)
+        {
+            Debug.Log($"TestList index {counter} Count: {items.Count}");
+        }
+
+        LoadPage();
     }
 
     public void LoadPage()
     {
-        inventoryImages = testList[displayPage].Select(p => !p.Encrypted ? sprReference[p.objectType] : encryptedImage).ToList();
+        inventoryImages.ForEach(p => p.gameObject.SetActive(true));
+        List<Sprite> spr = new List<Sprite>();
+        spr = testList[displayPage].Select(p => !p.Encrypted ? sprReference[p.objectType] : encryptedImage).ToList();
+        int g = 0;
+        foreach(Image im in inventoryImages)
+        {
+            if(g < spr.Count) im.sprite = spr[g];
+            else im.gameObject.SetActive(false);
+            g++;
+        }
         for(int i = 0; i < testList[displayPage].Count; i++)
         {
-            
+            if(!inventoryImages[i].TryGetComponent<ItemContainer>(out ItemContainer ic)){
+                inventoryImages[i].gameObject.AddComponent<ItemContainer>().item = testList[displayPage][i];
+                inventoryImages[i].gameObject.GetComponent<ItemContainer>().id = i;
+            } else
+            {
+                ic.item = testList[displayPage][i];
+                ic.id = i;
+            }
         }
     }
 
@@ -211,9 +256,8 @@ public class InventoryManager : MonoBehaviour, IPointerEnterHandler, IPointerExi
     }
 
     // --------------------------- Pointer Logic -------------------------------
-    public void OnPointerEnter(PointerEventData pdata)
+    public void PointerEnter(ItemContainer im)
     {
-        ItemContainer im = pdata.hovered[0].GetComponent<ItemContainer>();
         string text = "";
         switch (im.item.objectType)
         {
@@ -230,11 +274,28 @@ public class InventoryManager : MonoBehaviour, IPointerEnterHandler, IPointerExi
           text = $"Room ID: {im.item.roomID}";
           break;
         }
+
+        inventoryUI.GetComponentInChildren<TooltipText>().gameObject.GetComponent<TMP_Text>().text = text; // keep note
+        im.isSelected = true;
     }
 
-    public void OnPointerExit(PointerEventData pdata)
+    public void PointerExit(ItemContainer im)
     {
-        
+        im.isSelected = false;
+        inventoryUI.GetComponentInChildren<TooltipText>().gameObject.GetComponent<TMP_Text>().text = "Hover over an item to see more details!";
     }
 
+    public void PointerClick(ItemContainer im)
+    {
+        if (im.isSelected)
+        {
+            UseItem(im.item);
+            CreatePages();
+            displayPage = 0;
+            LoadPage();
+        } else
+        {
+            im.isSelected = true;
+        }
+    }
 }

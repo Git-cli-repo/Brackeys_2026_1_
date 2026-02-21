@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f5ee5a5c7d1dff48b18a9240c00c36b, type: 3}
+  m_Name: RoomUnlock
+  m_EditorClassIdentifier: Assembly-CSharp::Chest
+  chestID: 0
+  contents:
+  - {fileID: 11400000, guid: 7dd528a95ce5144b9a0fe7a12804afb5, type: 2}

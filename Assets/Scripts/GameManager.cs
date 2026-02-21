@@ -63,7 +63,7 @@ public class GameManager : MonoBehaviour
     {
         dialogueCanvas.alpha = 0;
         abbey = GameObject.FindFirstObjectByType<PlayerMovement>().gameObject;
-        inventoryCopy = GameObject.FindFirstObjectByType<InventoryManager>().inventory;
+        inventoryCopy = InventoryManager.Instance.inventory;
 
         // this logic lives in start temporarily - need a more reliable hook 
         // for example, OnActiveSceneChanged()
