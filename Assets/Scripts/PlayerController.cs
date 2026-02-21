@@ -20,7 +20,7 @@ public class PlayerController : MonoBehaviour
 
     public GameObject hitboxGO;
     private Hitbox hitbox;
-    public int hitboxLocationOffset;
+    public float hitboxLocationOffset;
 
     public InputActionReference moveAction;
     public InputActionReference attackAction;
@@ -42,10 +42,12 @@ public class PlayerController : MonoBehaviour
 
     public SpriteRenderer spriteRenderer;
     public float flashDuration = 0.1f;
+    public Animator animator;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        
         hitbox = hitboxGO.GetComponent<Hitbox>();
         offense = baseOffense;
         defense = baseDefense;
@@ -57,25 +59,6 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // hitboxEnableCoolDownTimer -= Time.deltaTime;
-
-        // if (hitboxEnableCoolDownTimer <= 0)
-        // {
-        //     enemies = GameObject.FindObjectsByType<EnemyController>(FindObjectsSortMode.None).Select(p => p.GetComponent<Transform>()).ToList();
-
-        //     foreach (Transform enemy in enemies)
-        //     {
-        //         Vector3 distance = transform.position - enemy.position;
-        //         if (distance.magnitude <= hitboxEnableDistance)
-        //         {
-        //             hitboxGO.SetActive(true);
-        //             break;
-        //         }
-        //         hitboxGO.SetActive(false);
-        //     }
-            
-        //     hitboxEnableCoolDownTimer = hitboxEnableCoolDownTime;
-        // }
 
         Vector2 moveActionRead = moveAction.action.ReadValue<Vector2>();
 

@@ -205,7 +205,7 @@ public class GameManager : MonoBehaviour
                             lines.AddRange(choice.message1);
 
                         }
-                        hasAlreadyUsed.Add(choice, true);
+                        hasAlreadyUsed[choice] = true;
                         break;
                     case ChoiceResult.ChoiceType.Item:
                         if (currentChoice == 1)
@@ -237,7 +237,7 @@ public class GameManager : MonoBehaviour
                         {
                             lines.AddRange(choice.message2);
                         }
-                        hasAlreadyUsed.Add(choice, true);
+                        hasAlreadyUsed[choice] = true;
                         break;
                     case ChoiceResult.ChoiceType.Item:
                         if (currentChoice == 2)
