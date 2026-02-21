@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7f5ee5a5c7d1dff48b18a9240c00c36b, type: 3}
-  m_Name: Test Chest
+  m_Name: Room6
   m_EditorClassIdentifier: Assembly-CSharp::Chest
   chestID: 0
   contents:
-  - {fileID: 0}
+  - {fileID: 11400000, guid: faf70f4663ead436193e794ecfa26f2f, type: 2}
