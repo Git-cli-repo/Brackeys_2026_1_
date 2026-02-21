@@ -1,0 +1,57 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fd925d013ec2afa4c97df69f432c969d, type: 3}
+  m_Name: FunManWeird
+  m_EditorClassIdentifier: Assembly-CSharp::Dialogue
+  dialogueRows:
+  - talkLine: Wan't some fun? H'yuck!
+    talkSprite: {fileID: -6949200702322379995, guid: b562c4170e110054fb7b421b0f952f2c, type: 3}
+    profileDirection: 0
+    talkSound: {fileID: 8300000, guid: c4653030568e0254893726d89cc0efef, type: 3}
+    isChoice: 0
+    choiceResult: {fileID: 0}
+  - talkLine: No thanks...
+    talkSprite: {fileID: -3466413011382681182, guid: f6b566c9a77bf2148a08b05da0d731ea, type: 3}
+    profileDirection: 1
+    talkSound: {fileID: 8300000, guid: 05f15c588bc184c4daf3dd36aec9a509, type: 3}
+    isChoice: 0
+    choiceResult: {fileID: 0}
+  - talkLine: (Let's stay away from this guy!)
+    talkSprite: {fileID: -9106464392509419758, guid: 7cec02b37f9fb8e4195edda9f6cf2dd8, type: 3}
+    profileDirection: 1
+    talkSound: {fileID: 8300000, guid: 05f15c588bc184c4daf3dd36aec9a509, type: 3}
+    isChoice: 0
+    choiceResult: {fileID: 0}
+  - talkLine: My chest is upstairs, H'yuck!
+    talkSprite: {fileID: -6949200702322379995, guid: b562c4170e110054fb7b421b0f952f2c, type: 3}
+    profileDirection: 0
+    talkSound: {fileID: 8300000, guid: c4653030568e0254893726d89cc0efef, type: 3}
+    isChoice: 0
+    choiceResult: {fileID: 0}
+  - talkLine: H'yuck! H'yuck! H'yuck'h!
+    talkSprite: {fileID: -6949200702322379995, guid: b562c4170e110054fb7b421b0f952f2c, type: 3}
+    profileDirection: 0
+    talkSound: {fileID: 8300000, guid: c4653030568e0254893726d89cc0efef, type: 3}
+    isChoice: 0
+    choiceResult: {fileID: 0}
+  - talkLine: H'yu'hy'uck'yhuck'y'uck!
+    talkSprite: {fileID: -6949200702322379995, guid: b562c4170e110054fb7b421b0f952f2c, type: 3}
+    profileDirection: 0
+    talkSound: {fileID: 8300000, guid: c4653030568e0254893726d89cc0efef, type: 3}
+    isChoice: 0
+    choiceResult: {fileID: 0}
+  - talkLine: (We're leaving.)
+    talkSprite: {fileID: -3466413011382681182, guid: f6b566c9a77bf2148a08b05da0d731ea, type: 3}
+    profileDirection: 1
+    talkSound: {fileID: 8300000, guid: 05f15c588bc184c4daf3dd36aec9a509, type: 3}
+    isChoice: 0
+    choiceResult: {fileID: 0}
