@@ -61,6 +61,7 @@ public class InventoryManager : MonoBehaviour, IPointerEnterHandler, IPointerExi
         GameManager.Instance.inventoryActive = false;
 
         CreatePages();
+        LoadPage();
     }
 
     // Update is called once per frame
@@ -168,7 +169,7 @@ public class InventoryManager : MonoBehaviour, IPointerEnterHandler, IPointerExi
 
     public void CreatePages()
     {
-        for(int i = 0; i < Mathf.Ceil(inventory.Count / 9); i++) testList[i] = new List<Item>();
+        for(int i = 0; i < Mathf.CeilToInt(inventory.Count / 9f); i++) testList[i] = new List<Item>();
         
         foreach (Item it in inventory)
         {

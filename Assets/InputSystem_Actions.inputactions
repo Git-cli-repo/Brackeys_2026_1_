@@ -534,6 +534,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "Open Inventory",
+                    "type": "Button",
+                    "id": "d6481269-405e-4186-8b55-56559f1e7ed0",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -954,6 +963,17 @@
                     "action": "TrackedDeviceOrientation",
                     "isComposite": false,
                     "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "1f50ba62-4252-45ba-b496-15c5ba905893",
+                    "path": "<Keyboard>/i",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Open Inventory",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         },
@@ -975,6 +995,34 @@
                 {
                     "name": "",
                     "id": "a4cc3f8b-e187-408e-90a6-a6dcd6a15116",
+                    "path": "",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "New action",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        },
+        {
+            "name": "New action map1",
+            "id": "6bc539b0-b429-4525-a0e6-e5bac661a302",
+            "actions": [
+                {
+                    "name": "New action",
+                    "type": "Button",
+                    "id": "e7453b7e-5bdf-4919-974d-acafaa237770",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "78539163-eb91-4494-ae5c-0afb680f8295",
                     "path": "",
                     "interactions": "",
                     "processors": "",

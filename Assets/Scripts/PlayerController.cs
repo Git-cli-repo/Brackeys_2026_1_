@@ -57,25 +57,25 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        hitboxEnableCoolDownTimer -= Time.deltaTime;
+        // hitboxEnableCoolDownTimer -= Time.deltaTime;
 
-        if (hitboxEnableCoolDownTimer <= 0)
-        {
-            enemies = GameObject.FindObjectsByType<EnemyController>(FindObjectsSortMode.None).Select(p => p.GetComponent<Transform>()).ToList();
+        // if (hitboxEnableCoolDownTimer <= 0)
+        // {
+        //     enemies = GameObject.FindObjectsByType<EnemyController>(FindObjectsSortMode.None).Select(p => p.GetComponent<Transform>()).ToList();
 
-            foreach (Transform enemy in enemies)
-            {
-                Vector3 distance = transform.position - enemy.position;
-                if (distance.magnitude <= hitboxEnableDistance)
-                {
-                    hitboxGO.SetActive(true);
-                    break;
-                }
-                hitboxGO.SetActive(false);
-            }
+        //     foreach (Transform enemy in enemies)
+        //     {
+        //         Vector3 distance = transform.position - enemy.position;
+        //         if (distance.magnitude <= hitboxEnableDistance)
+        //         {
+        //             hitboxGO.SetActive(true);
+        //             break;
+        //         }
+        //         hitboxGO.SetActive(false);
+        //     }
             
-            hitboxEnableCoolDownTimer = hitboxEnableCoolDownTime;
-        }
+        //     hitboxEnableCoolDownTimer = hitboxEnableCoolDownTime;
+        // }
 
         Vector2 moveActionRead = moveAction.action.ReadValue<Vector2>();
 
