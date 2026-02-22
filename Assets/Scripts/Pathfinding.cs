@@ -1,3 +1,4 @@
+using Unity.Burst.Intrinsics;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -5,14 +6,16 @@ public class Pathfinding : MonoBehaviour
 {
     public Transform player;
     public float maxSpeed = 5f;
-    public float DetectionDistance;
+    public float detectionDistance;
     public float slowDownDistance = 3f;
     public EnemyController enemy;
+    public Rigidbody2D body;
 
     void Start()
     {
         enemy.enabled = false;
         player = GameObject.FindFirstObjectByType<PlayerMovement>().gameObject.transform;
+        body = gameObject.GetComponent<Rigidbody2D>();
     }
 
     private void Update()
@@ -21,16 +24,17 @@ public class Pathfinding : MonoBehaviour
         float distance = direction.magnitude;
         Debug.Log(distance);
 
-        if (distance > DetectionDistance)
+        if (distance > detectionDistance)
         {    
-            return;
+            enemy.enabled = false;
+            body.linearVelocity = new Vector2(0, 0);
         }
         else
         {
             enemy.enabled = true;
         }
 
-        if (enemy.canMove)
+        if (enemy.canMove && distance < detectionDistance)
         {
             if (player == null)
             {
@@ -41,7 +45,7 @@ public class Pathfinding : MonoBehaviour
 
             float t = Mathf.InverseLerp(0, slowDownDistance, distance);
             float currentSpeed = Mathf.Lerp(0f, maxSpeed, t);
-            transform.position += (Vector3)(moveDirection * currentSpeed * Time.deltaTime);
+            body.linearVelocity = moveDirection * currentSpeed;
         }
     }
 }
