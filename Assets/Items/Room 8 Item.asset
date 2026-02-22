@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7a351c7e3e52f41b798b566725c122ca, type: 3}
-  m_Name: Choclate Bar
+  m_Name: Room 8 Item
   m_EditorClassIdentifier: Assembly-CSharp::Item
-  itemName: 
-  objectType: 2
+  itemName: Room 8
+  objectType: 3
+  itemIcon: {fileID: 0}
   Encrypted: 0
-  itemIcon: {fileID: -1304905567622442630, guid: fbe511ef1b3974069a13e5c38d66fe72, type: 3}
   attackFrequency: 0
   offenseIncrease: 0
   defenseIncrease: 0
@@ -23,7 +23,8 @@ MonoBehaviour:
   baseOffenseIncrease: 0
   baseDefenseIncrease: 0
   maxHpIncrease: 0
-  heal: 1
-  hpRegain: 1
+  heal: 0
+  hpRegain: 0
+  roomID: 2
   decryptedItem: {fileID: 0}
   contents: {fileID: 0}
