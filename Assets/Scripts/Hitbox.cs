@@ -8,10 +8,7 @@ public class Hitbox : MonoBehaviour
     public string tagToDetect;
     public List<GameObject> detectedObjects;
     public Collider2D goCollider;
-
-    void Start()
-    {
-    }
+    
     void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.tag == tagToDetect)

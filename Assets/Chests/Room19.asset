@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Chest
   chestID: 0
   contents:
-  - {fileID: 11400000, guid: faf70f4663ead436193e794ecfa26f2f, type: 2}
+  - {fileID: 11400000, guid: 2a0f10d6aa93e48a7ae01abc9f28fe31, type: 2}
