@@ -79,6 +79,7 @@ MonoBehaviour:
   detectedObject: 0
   tagToDetect: Enemy
   detectedObjects: []
+  goCollider: {fileID: 0}
 --- !u!61 &3679423872913230694
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -368,6 +369,11 @@ MonoBehaviour:
   stopMoving: 0
   waitAfterAttack: 0.5
   knockbackForce: 1
+  hitboxEnableDistance: 0
+  hitboxEnableCoolDownTime: 0
+  hitboxEnableCoolDownTimer: 0
+  enemies: []
   whiteFlashMaterial: {fileID: 2100000, guid: e73a58f6e2794ae7b1b7e50b7fb811b0, type: 2}
   spriteRenderer: {fileID: 2890593809215664799}
   flashDuration: 0.1
+  animator: {fileID: 0}

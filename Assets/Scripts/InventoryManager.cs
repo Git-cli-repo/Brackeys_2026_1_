@@ -10,6 +10,7 @@ using UnityEngine.EventSystems;
 using Unity.VisualScripting;
 using TMPro;
 using NUnit.Framework.Internal;
+using UnityEngine.SceneManagement;
 
 public class InventoryManager : MonoBehaviour
 {
@@ -50,6 +51,36 @@ public class InventoryManager : MonoBehaviour
     {
         Instance = this;
         DontDestroyOnLoad(Instance);
+    }
+
+    private void OnEnable()
+    {
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+
+    private void OnDisable()
+    {
+        SceneManager.sceneLoaded -= OnSceneLoaded;
+    }
+
+    void OnSceneLoaded(Scene scene, LoadSceneMode loadSceneMode)
+    {
+        playerController = FindAnyObjectByType<PlayerController>();
+        testList[0] = new List<Item>();
+
+        sprReference = new Dictionary<ItemType, Sprite>
+        {
+            {ItemType.Weapon, weaponImage},
+            {ItemType.Armor, armourImage},
+            {ItemType.Consumable, consumableImage},
+            {ItemType.Email, emailImage},
+            {ItemType.Room, roomImage}
+        };
+
+        inventoryUI.SetActive(false);
+        GameManager.Instance.inventoryActive = false;
+
+        CreatePages();
     }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created

@@ -10,6 +10,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Rendering.Universal;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -54,11 +55,54 @@ public class GameManager : MonoBehaviour
     public Sprite abbeyGenericTalkFace;
     public Sprite finalChestSprite;
     public bool inventoryActive;
+    public GameObject canvas;
     void Awake()
     {
+        DontDestroyOnLoad(canvas);
         Instance = this;
         DontDestroyOnLoad(this);
     }
+
+     private void OnEnable()
+    {
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+
+    private void OnDisable()
+    {
+        SceneManager.sceneLoaded -= OnSceneLoaded;
+    }
+
+    void OnSceneLoaded(Scene scene, LoadSceneMode loadSceneMode)
+    {
+        Debug.Log("OnSceneLoaded entered");
+        dialogueCanvas.alpha = 0;
+        abbey = GameObject.FindFirstObjectByType<PlayerMovement>().gameObject;
+        inventoryCopy = InventoryManager.Instance.inventory;
+
+        // Initialize lists + search
+        roomsList = GameObject.FindObjectsByType<RoomContainer>(FindObjectsSortMode.None).Select(p => p.gameObject).ToList();
+        barrierList = GameObject.FindObjectsByType<BarrierContainer>(FindObjectsSortMode.None).Select(p => p.gameObject).ToList();
+
+        Debug.Log(abbey);
+        Debug.Log(roomsList);
+        Debug.Log(barrierList);
+
+        // Disable 
+        foreach (RoomContainer rm in roomsList.Select(p => p.GetComponent<RoomContainer>()))
+        {
+            rm.isEnabled = false;
+            rm.gameObject.SetActive(false);
+        }
+
+        // Enable
+        foreach (BarrierContainer bc in barrierList.Select(p => p.GetComponent<BarrierContainer>()))
+        {
+            bc.enabled = true;
+            bc.gameObject.SetActive(true);
+        }
+    }
+
     void Start()
     {
         dialogueCanvas.alpha = 0;
