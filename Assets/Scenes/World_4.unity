@@ -165471,6 +165471,10 @@ PrefabInstance:
       propertyPath: dialogue
       value: 
       objectReference: {fileID: 11400000, guid: 1555069bd04d34b1d9325e977fd9903a, type: 2}
+    - target: {fileID: 6822117480118278408, guid: b2813cc06e13047b6b95e6994d6fec88, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -6845261737945016659, guid: bf78ec783a32f42feb939a3437160b1d, type: 3}
     - target: {fileID: 8173315834609222220, guid: b2813cc06e13047b6b95e6994d6fec88, type: 3}
       propertyPath: m_Name
       value: chest_0 (1)
@@ -184600,6 +184604,10 @@ PrefabInstance:
       propertyPath: dialogue
       value: 
       objectReference: {fileID: 11400000, guid: f1b6634696cdd477bbf01573f4066aea, type: 2}
+    - target: {fileID: 6822117480118278408, guid: b2813cc06e13047b6b95e6994d6fec88, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -6845261737945016659, guid: bf78ec783a32f42feb939a3437160b1d, type: 3}
     - target: {fileID: 8173315834609222220, guid: b2813cc06e13047b6b95e6994d6fec88, type: 3}
       propertyPath: m_Name
       value: chest_0 (2)
@@ -215486,6 +215494,10 @@ PrefabInstance:
       propertyPath: dialogue
       value: 
       objectReference: {fileID: 11400000, guid: 5ed2bd608393f4c4db823628fb8da66a, type: 2}
+    - target: {fileID: 6822117480118278408, guid: b2813cc06e13047b6b95e6994d6fec88, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -6845261737945016659, guid: bf78ec783a32f42feb939a3437160b1d, type: 3}
     - target: {fileID: 8173315834609222220, guid: b2813cc06e13047b6b95e6994d6fec88, type: 3}
       propertyPath: m_Name
       value: chest_0 (3)
@@ -217048,6 +217060,10 @@ PrefabInstance:
       propertyPath: dialogue
       value: 
       objectReference: {fileID: 11400000, guid: 6a2da52095a3d4a989753a7446210cc0, type: 2}
+    - target: {fileID: 6822117480118278408, guid: b2813cc06e13047b6b95e6994d6fec88, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -6845261737945016659, guid: bf78ec783a32f42feb939a3437160b1d, type: 3}
     - target: {fileID: 8173315834609222220, guid: b2813cc06e13047b6b95e6994d6fec88, type: 3}
       propertyPath: m_Name
       value: chest_0
